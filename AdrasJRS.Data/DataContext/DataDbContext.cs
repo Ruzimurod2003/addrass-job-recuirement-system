@@ -38,6 +38,8 @@ public partial class DataDbContext : IdentityDbContext<AppUser, AppRole, Guid>
         modelBuilder.ApplyConfiguration(new TimeConfiguration());
         modelBuilder.ApplyConfiguration(new TitleConfiguration());
         modelBuilder.ApplyConfiguration(new CountryConfiguration());
+        modelBuilder.ApplyConfiguration(new CultureConfiguration());
+        modelBuilder.ApplyConfiguration(new ResourceConfiguration());
 
         modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
         modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
@@ -59,4 +61,6 @@ public partial class DataDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     public DbSet<Time> Times { get; set; }
     public DbSet<Title> Titles { get; set; }
     public DbSet<Country> Countries { get; set; }
+    public DbSet<Culture> Cultures { get; set; }
+    public DbSet<Resource> Resources { get; set; }
 }

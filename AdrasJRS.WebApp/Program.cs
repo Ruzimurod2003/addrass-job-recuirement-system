@@ -2,10 +2,23 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AdrasJRS.Data.DataContext;
 using AdrasJRS.Data.Entities;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
+using AdrasJRS.Localizers;
+using Microsoft.Extensions.Localization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+builder.Services.AddControllersWithViews().AddDataAnnotationsLocalization(options =>
+{
+    options.DataAnnotationLocalizerProvider = (type, factory) =>
+    factory.Create(null);
+})
+.AddViewLocalization().AddRazorRuntimeCompilation();
+
+builder.Services.AddTransient<IStringLocalizer, EFStringLocalizer>();
+
+builder.Services.AddSingleton<IStringLocalizerFactory>(new EFStringLocalizerFactory());
 
 var connectionString = builder.Configuration.GetConnectionString("AdrasJRSContextConnection");
 
@@ -62,6 +75,20 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+var supportedCultures = new[]
+{
+    new CultureInfo("en"),
+    new CultureInfo("ru"),
+    new CultureInfo("uz"),
+    new CultureInfo("de"),
+};
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture("ru"),
+    SupportedCultures = supportedCultures,
+    SupportedUICultures = supportedCultures
+});
 
 app.UseStaticFiles();
 
