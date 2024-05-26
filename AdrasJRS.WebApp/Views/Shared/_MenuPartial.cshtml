@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Localization
 @inject SignInManager<AppUser> signInManager
 @inject UserManager<AppUser> userManager
 
@@ -9,6 +10,7 @@
     var isInRoleUser = User.IsInRole("User");
     var isInRoleEmployer = User.IsInRole("Employer");
     var isInRoleAdmin = User.IsInRole("Admin");
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
 }
 
 <li class="menu-active"><a href="/">Home</a></li>
@@ -88,3 +90,39 @@ else
         <a href="/employer/login" class="ticker-btn">For Employers</a>
     </li>
 }
+
+<li class="menu-has-children">
+    <a href="#">
+        <img class="left-image" width="30" src="@string.Format("/images/flags/{0}.png",requestCulture?.RequestCulture.Culture.Name)">
+    </a>
+    <ul>
+        <li>
+            <a asp-action="SetLanguage" asp-controller="Home"
+               asp-route-returnurl="@Context.Request.Path" asp-route-culture="en">
+                <img width="30" class="left-image" src="~/images/flags/en.png">
+                <span class="menu-item">English</span>
+            </a>
+        </li>
+        <li>
+            <a asp-action="SetLanguage" asp-controller="Home"
+               asp-route-returnurl="@Context.Request.Path" asp-route-culture="ru">
+                <img width="30" class="left-image" src="~/images/flags/ru.png">
+                <span class="menu-item">Russian</span>
+            </a>
+        </li>
+        <li>
+            <a asp-action="SetLanguage" asp-controller="Home"
+               asp-route-returnurl="@Context.Request.Path" asp-route-culture="uz">
+                <img width="30" class="left-image" src="~/images/flags/uz.png">
+                <span class="menu-item">Uzbek</span>
+            </a>
+        </li>
+        <li>
+            <a asp-action="SetLanguage" asp-controller="Home"
+               asp-route-returnurl="@Context.Request.Path" asp-route-culture="de">
+                <img width="30" class="left-image" src="~/images/flags/de.png">
+                <span class="menu-item">German</span>
+            </a>
+        </li>
+    </ul>
+</li>

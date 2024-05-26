@@ -1,10 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Localization
 @inject SignInManager<AppUser> signInManager
 @inject UserManager<AppUser> userManager
 
 @{
     var admin = await userManager.GetUserAsync(User);
+    var requestCulture = Context.Features.Get<IRequestCultureFeature>();
 }
 
 <!-- Navbar -->
@@ -53,6 +55,48 @@
                         <a class="dropdown-item" href="/logout">
                             <i class="bx bx-power-off me-2"></i>
                             <span class="align-middle">Log Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!--/ Admin -->
+        </ul>
+
+        <ul class="navbar-nav flex-row ms-auto">
+            <!-- Employer -->
+            <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                    <div class="avatar avatar-online">
+                        <img class="left-image" width="30" src="@string.Format("/images/flags/{0}.png",requestCulture?.RequestCulture.Culture.Name)">
+                    </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a asp-action="SetLanguage" asp-controller="Home"
+                           asp-route-returnurl="@Context.Request.Path" asp-route-culture="en">
+                            <img width="30" class="left-image" src="~/images/flags/en.png">
+                            <span class="menu-item">English</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-action="SetLanguage" asp-controller="Home"
+                           asp-route-returnurl="@Context.Request.Path" asp-route-culture="ru">
+                            <img width="30" class="left-image" src="~/images/flags/ru.png">
+                            <span class="menu-item">Russian</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-action="SetLanguage" asp-controller="Home"
+                           asp-route-returnurl="@Context.Request.Path" asp-route-culture="uz">
+                            <img width="30" class="left-image" src="~/images/flags/uz.png">
+                            <span class="menu-item">Uzbek</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-action="SetLanguage" asp-controller="Home"
+                           asp-route-returnurl="@Context.Request.Path" asp-route-culture="de">
+                            <img width="30" class="left-image" src="~/images/flags/de.png">
+                            <span class="menu-item">German</span>
                         </a>
                     </li>
                 </ul>
