@@ -64,7 +64,7 @@ public class CultureController : Controller
     [Route("update/{id}")]
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Update(int id, UpdateTitleViewModel model)
+    public async Task<IActionResult> Update(int id, UpdateCultureViewModel model)
     {
         Culture culture = _context.Cultures.Where(t => t.Id == id).First();
         culture.Name = model.Name;
