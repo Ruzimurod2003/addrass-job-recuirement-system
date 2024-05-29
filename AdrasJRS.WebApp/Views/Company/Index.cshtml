@@ -4,7 +4,7 @@
 
 @{
     Layout = "_Layout";
-    int startRank = ViewBag.StartRank ?? 1; // Lấy giá trị startRank từ ViewBag, mặc định là 1 nếu không tồn tại
+    int startRank = ViewBag.StartRank ?? 1; 
 }
 
 <style>
@@ -15,7 +15,7 @@
         align-items: center;
         margin-top: 20px;
     }
-    
+
     .pagination li {
         margin: 0 5px;
     }
@@ -42,9 +42,12 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
                 <h1 class="text-white">
-                    <span>Vietnam Best IT Companies</span>
+                    <span>@Localizer["best_companies"]</span>
                 </h1>
-                <p class="text-white link-nav"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="/company"> All Companies</a></p>
+                <p class="text-white link-nav"><a href="/">
+                        @Localizer["home"] </a> <span class="lnr lnr-arrow-right"></span>
+                    <a href="/company"> @Localizer["all_companies"]</a>
+                </p>
             </div>
         </div>
     </div>
@@ -58,17 +61,21 @@
                 <!-- Employer list -->
                 @if (Model.Any())
                 {
-                    @for (int i=0; i<Model.Count(); i++)
+                    @for (int i = 0; i < Model.Count(); i++)
                     {
                         var employer = Model.ElementAt(i);
                         <div class="single-post d-flex flex-row">
                             <!-- Employer province -->
                             <div class="thumb" style="align-items:center">
-                                <a href="/job?slug=@employer.Slug"><img style="border-radius:10px" width="200" height="100" src="https://localhost:7211/images/employers/@employer.UrlAvatar" alt="employer image"></a>
+                                <a href="/job?slug=@employer.Slug">
+                                    <img style="border-radius:10px" width="200" height="100"
+                                        src="https://localhost:7211/images/employers/@employer.UrlAvatar"
+                                        alt="employer image"></a>
                                 <ul class="tags" style="justify-content:center; display: grid; border-radius:10px">
                                     <!--Skill-->
                                     <li style="border-radius:10px">
-                                        <strong><span class="lnr lnr-map-marker"></span><a href="/job?slug=@employer.Province.Slug"> @employer.Province.Name</a></strong>
+                                        <strong><span class="lnr lnr-map-marker"></span><a
+                                                href="/job?slug=@employer.Province.Slug"> @employer.Province.Name</a></strong>
                                     </li>
                                 </ul>
                                 <hr />
@@ -78,9 +85,15 @@
                             <div class="details" style="margin-left:20px; width:600px;">
                                 <div class="title d-flex flex-row justify-content-between">
                                     <div class="titles">
-                                        <a href="/company/@employer.Slug"><h4>@employer.FullName</h4></a>
-                                        <p><img width="30" height="20" src="https://localhost:7211/images/countries/@employer.Country.Flag" alt="flag"> @employer.Country.Name</p>
-                                        <strong><a target="_blank" href="https://@employer.WebsiteURL" style="color: black"><span class="lnr lnr-link"></span> @employer.WebsiteURL</a></strong>
+                                        <a href="/company/@employer.Slug">
+                                            <h4>@employer.FullName</h4>
+                                        </a>
+                                        <p><img width="30" height="20"
+                                                src="https://localhost:7211/images/countries/@employer.Country.Flag" alt="flag">
+                                            @employer.Country.Name</p>
+                                        <strong><a target="_blank" href="https://@employer.WebsiteURL"
+                                                style="color: black"><span class="lnr lnr-link"></span>
+                                                @employer.WebsiteURL</a></strong>
                                     </div>
                                 </div>
                                 <hr>
@@ -88,12 +101,15 @@
                                     <div>
                                         <h5><strong><span class="lnr lnr-clock"></span> @employer.WorkingDays</strong></h5>
                                         <h5><strong><span class="lnr lnr-users"></span> @employer.CompanySize</strong></h5>
-                                        <h5 style="color: blue" class="address"><strong><span class="lnr lnr-envelope"></span> @employer.Email</strong></h5>
-                                        <h5 style="color: green" class="address"><strong><span class="lnr lnr-phone-handset"></span> @employer.Phone</strong></h5>
+                                        <h5 style="color: blue" class="address"><strong><span class="lnr lnr-envelope"></span>
+                                                @employer.Email</strong></h5>
+                                        <h5 style="color: green" class="address"><strong><span
+                                                    class="lnr lnr-phone-handset"></span> @employer.Phone</strong></h5>
                                     </div>
                                     <div style="text-align:right; margin-top: 80px">
                                         <ul class="btns">
-                                            <li style="border-radius:10px"><a href="/company/@employer.Slug">View company</a></li>
+                                            <li style="border-radius:10px"><a href="/company/@employer.Slug">@Localizer["view_company"]</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -104,8 +120,9 @@
                 else
                 {
                     <div class="text-center" style="margin-top: 50px;">
-                        <img src="~/images/default/oops.png" alt="oops" width="600" height="400" style="margin-bottom: 10px; border-radius:10px">
-                        <h4>Oops! There are currently no employers available.</h4>
+                        <img src="~/images/default/oops.png" alt="oops" width="600" height="400"
+                            style="margin-bottom: 10px; border-radius:10px">
+                        <h4>@Localizer["oops_there_are_currently_no_employers_available"]</h4>
                     </div>
                 }
                 <!--End job list-->
@@ -114,18 +131,18 @@
                 <div class="text-center">
                     <ul class="pagination">
                         @Html.PagedListPager((IPagedList)Model, page =>
-                        Url.Action("Index", new { page }),
-                        new PagedListRenderOptions
+                                 Url.Action("Index", new { page }),
+                                 new PagedListRenderOptions
                         {
-                        Display = PagedListDisplayMode.IfNeeded,
-                        LiElementClasses = new string[] { "page-item" },
-                        UlElementClasses = new string[] { "pagination" },
-                        PageClasses = new string[] { "page-link" },
-                        MaximumPageNumbersToDisplay = 7, // Maximum number of pages displayed
-                        LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
-                        LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
-                        LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
-                        LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
+                            Display = PagedListDisplayMode.IfNeeded,
+                            LiElementClasses = new string[] { "page-item" },
+                            UlElementClasses = new string[] { "pagination" },
+                            PageClasses = new string[] { "page-link" },
+                            MaximumPageNumbersToDisplay = 7, // Maximum number of pages displayed
+                            LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
+                            LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
+                            LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
+                            LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
                         })
                     </ul>
                 </div>
@@ -133,7 +150,7 @@
             </div>
 
             <!-- Sidebar -->
-                <partial name="../Shared/_SidebarPartial.cshtml"></partial>
+            <partial name="../Shared/_SidebarPartial.cshtml"></partial>
 
         </div>
     </div>
@@ -145,10 +162,10 @@
         <div class="row d-flex justify-content-center">
             <div class="menu-content col-lg-9">
                 <div class="title text-center">
-                    <h1 class="mb-10 text-white">Join us today without any hesitation</h1>
-                    <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-                    <a class="primary-btn" href="#">I am a Candidate</a>
-                    <a class="primary-btn" href="#">Request Free Demo</a>
+                    <h1 class="mb-10 text-white">@Localizer["join_us_today_without_any_hesitation"]</h1>
+                    <p class="text-white">
+                        @Localizer["additional_text"]
+                    </p>
                 </div>
             </div>
         </div>

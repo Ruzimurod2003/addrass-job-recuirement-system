@@ -5,13 +5,13 @@
 }
 
 <!-- /Logo -->
-<h4 class="mb-2">Welcome to Sneat! 👋</h4>
-<p class="mb-4">Please sign-in to your account and start the adventure</p>
+<h4 class="mb-2">@Localizer["welcome_to_project"]</h4>
+<p class="mb-4">@Localizer["please_sign_in_to_your_account_and_start_the_adventure"]</p>
 
 <form asp-action="Login" asp-controller="Account" id="account" class="mb-3" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="mb-3">
-        <label asp-for="Email" class="form-label"></label><span class="text-danger">*</span>
+        <label asp-for="Email" class="form-label">@Localizer["email"]</label><span class="text-danger">*</span>
         <input asp-for="Email"
                type="text"
                class="form-control"
@@ -28,7 +28,7 @@
                 <small>Forgot Password?</small>
             </a>
         </div>*@
-            <label asp-for="Password" class="form-label"></label><span class="text-danger">*</span>
+            <label asp-for="Password" class="form-label">@Localizer["password"]</label><span class="text-danger">*</span>
             <div class="input-group input-group-merge">
                 <input asp-for="Password"
                        type="password"
@@ -42,23 +42,23 @@
     <div class="mb-3">
         <div class="form-check">
             <input class="form-check-input" type="checkbox" asp-for="RememberMe" />
-            <label class="form-check-label" asp-for="RememberMe"> Remember Me </label>
+            <label class="form-check-label" asp-for="RememberMe">@Localizer["remember_me"]</label>
         </div>
     </div>
     <div class="mb-3">
-        <button id="login-submit" class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+        <button id="login-submit" class="btn btn-primary d-grid w-100" type="submit">@Localizer["sign_in"]</button>
     </div>
 </form>
 
 <p class="text-center">
-    <span>New on our platform?</span>
+    <span>@Localizer["new_on_our_platform"]</span>
     <a href="/register">
-        <span>Create an account</span>
+        <span>@Localizer["create_an_account"]</span>
     </a>
 </p>
 
 <a href="/employer/login"
-   class="btn btn-primary d-grid w-100" style="position:center">Sign in for Employer</a>
+   class="btn btn-primary d-grid w-100" style="position:center">@Localizer["sign_in_for_employer"]</a>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
@@ -67,10 +67,10 @@
     {
         <script>
             Swal.fire({
-                title: 'Password Changed',
-                text: 'Your password has been changed successfully. Please sign in again.',
+                title: '@Localizer["password_changed"]',
+                text: '@Localizer["your_password_has_been_changed_successfully_please_sign_in_again"]',
                 icon: 'success',
-                confirmButtonText: 'OK'
+                confirmButtonText: '@Localizer["OK"]'
             });
         </script>        
     }

@@ -1,7 +1,7 @@
 ﻿@model List<Dictionary<string, string>>
 
 @{
-    ViewData["Title"] = "User manager";
+    ViewData["Title"] = Localizer["user_manager"];
 }
 
 <div class="content-wrapper">
@@ -9,22 +9,22 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title" style="text-align:center">List Account With Role</h4>
+                    <h4 class="card-title" style="text-align:center">@Localizer["list_account_with_role"]</h4>
                     <br />
                     <div class="table-responsive">
                         <table class="table table-bordered" style="text-align: center">
                             <thead>
                                 <tr>
                                     <th>
-                                        Account
+                                        @Localizer["account"]
                                     </th>
                                     <th>
-                                        Avatar
+                                        @Localizer["avatar"]
                                     </th>
                                     <th>
-                                        Role
+                                        @Localizer["role"]
                                     </th>
-                                    <th>Action</th>
+                                    <th>@Localizer["actions"]</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -32,10 +32,12 @@
                                 {
                                     <tr>
                                         <td>@user["Email"]</td>
-                                        <td><img src="https://localhost:7211/images/employers/@user["Avatar"]" style="width: 50px" /></td>
+                                        <td><img src="https://localhost:7211/images/employers/@user["Avatar"]"
+                                                style="width: 50px" /></td>
                                         <td>@user["RoleNames"]</td>
                                         <td>
-                                            <a class="btn btn-primary" asp-action="ManageUserRoles" asp-route-userId="@user["userId"]">Set Role</a>
+                                            <a class="btn btn-primary" asp-action="ManageUserRoles"
+                                                asp-route-userId="@user["userId"]">@Localizer["set_role"]</a>
                                         </td>
                                     </tr>
                                 }
@@ -44,22 +46,22 @@
                     </div>
                     @*<!--Page list-->
                     <div class="text-center">
-                        <ul class="pagination">
-                            @Html.PagedListPager((IPagedList)Model, page =>
-                            Url.Action("Index", new { page }),
-                            new PagedListRenderOptions
-                            {
-                            Display = PagedListDisplayMode.IfNeeded,
-                            LiElementClasses = new string[] { "page-item" },
-                            UlElementClasses = new string[] { "pagination" },
-                            PageClasses = new string[] { "page-link" },
-                            MaximumPageNumbersToDisplay = 7, // Maximum number of pages displayed
-                            LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
-                            LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
-                            LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
-                            LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
-                            })
-                        </ul>
+                    <ul class="pagination">
+                    @Html.PagedListPager((IPagedList)Model, page =>
+                    Url.Action("Index", new { page }),
+                    new PagedListRenderOptions
+                    {
+                    Display = PagedListDisplayMode.IfNeeded,
+                    LiElementClasses = new string[] { "page-item" },
+                    UlElementClasses = new string[] { "pagination" },
+                    PageClasses = new string[] { "page-link" },
+                    MaximumPageNumbersToDisplay = 7, // Maximum number of pages displayed
+                    LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
+                    LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
+                    LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
+                    LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
+                    })
+                    </ul>
                     </div>*@
                 </div>
             </div>
@@ -86,21 +88,21 @@
         margin-top: 20px;
     }
 
-        .pagination li {
-            margin: 0 5px;
-        }
+    .pagination li {
+        margin: 0 5px;
+    }
 
-            .pagination li a {
-                display: inline-block;
-                padding: 5px 10px;
-                border: 1px solid #ccc;
-                color: #333;
-                text-decoration: none;
-                border-radius: 5px;
-            }
+    .pagination li a {
+        display: inline-block;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        color: #333;
+        text-decoration: none;
+        border-radius: 5px;
+    }
 
-            .pagination li.active a {
-                background-color: #333;
-                color: #fff;
-            }
+    .pagination li.active a {
+        background-color: #333;
+        color: #fff;
+    }
 </style>

@@ -55,7 +55,7 @@
                     <li>
                         <a class="dropdown-item" href="/logout">
                             <i class="bx bx-power-off me-2"></i>
-                            <span class="align-middle">Log Out</span>
+                            <span class="align-middle">@Localizer["log_out"]</span>
                         </a>
                     </li>
                 </ul>
@@ -83,21 +83,21 @@
                         <a asp-action="SetLanguage" asp-controller="Home"
                            asp-route-returnurl="@Context.Request.Path" asp-route-culture="ru">
                             <img width="30" class="left-image" src="~/images/flags/ru.png">
-                            <span class="menu-item">Russian</span>
+                            <span class="menu-item">Русский</span>
                         </a>
                     </li>
                     <li>
                         <a asp-action="SetLanguage" asp-controller="Home"
                            asp-route-returnurl="@Context.Request.Path" asp-route-culture="uz">
                             <img width="30" class="left-image" src="~/images/flags/uz.png">
-                            <span class="menu-item">Uzbek</span>
+                            <span class="menu-item">O'zbekcha</span>
                         </a>
                     </li>
                     <li>
                         <a asp-action="SetLanguage" asp-controller="Home"
                            asp-route-returnurl="@Context.Request.Path" asp-route-culture="de">
                             <img width="30" class="left-image" src="~/images/flags/de.png">
-                            <span class="menu-item">German</span>
+                            <span class="menu-item">Deutsch</span>
                         </a>
                     </li>
                 </ul>

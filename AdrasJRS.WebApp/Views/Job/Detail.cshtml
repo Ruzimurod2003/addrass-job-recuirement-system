@@ -18,7 +18,7 @@
 				<h1 class="text-white">
 					@Model.Name
 				</h1>
-				<p class="text-white link-nav"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> Job Details</a></p>
+				<p class="text-white link-nav"><a href="/">@Localizer["home"] </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> @Localizer["job_details"]</a></p>
 			</div>
 		</div>
 	</div>
@@ -54,19 +54,19 @@
 							<div class="titles">
 								<a href="/job/@Model.Slug"><h4>@Model.Name</h4></a>
 								<h5 style="color: gray; margin-bottom: 5px;"><span class="lnr lnr-hourglass"></span> @GetTimeAgo(Model.CreateDate)</h5>
-								<h5 style="margin-top: 10px; margin-bottom: 10px"><strong>From: <a href="/company/@Model.AppUser.Slug">@Model.AppUser.FullName</a></strong></h5>
+								<h5 style="margin-top: 10px; margin-bottom: 10px"><strong>@Localizer["from"]: <a href="/company/@Model.AppUser.Slug">@Model.AppUser.FullName</a></strong></h5>
 							</div>
 						</div>
 						<hr>
 						<p>@Html.Raw(Model.Introduce)</p>
 						<hr />
-						<h5><strong>Job Nature: @Model.Time.Name</strong></h5>
+						<h5><strong>@Localizer["job_nature"]: @Model.Time.Name</strong></h5>
 						<h5 style="color: blue"><span class="lnr lnr-book"></span> <strong>@Model.Title.Name</strong></h5>
 						<h5 style="color: green"><strong>$ @Model.MinSalary - @Model.MaxSalary USD</strong></h5>
 					</div>
 				</div>
 				<div class="single-post job-details">
-					<h4 class="single-title">Whom we are looking for</h4>
+					<h4 class="single-title">@Localizer["whom_we_are_looking_for"]</h4>
 					<p>@Html.Raw(Model.Description)</p>
 				</div>
 				<div class="single-post job-experience">
@@ -88,20 +88,20 @@
 				{
 					if (!User.IsInRole("User"))
 					{
-						<a class="text-uppercase loadmore-btn mx-auto d-block" type="button" href="#" onclick="accessDenied()">apply now</a>
+						<a class="text-uppercase loadmore-btn mx-auto d-block" type="button" href="#" onclick="accessDenied()">@Localizer["apply_now"]</a>
 					}
 					else if (ViewBag.HasSubmittedCV)
 					{
-						<a class="text-uppercase loadmore-btn mx-auto d-block" type="button" href="#" onclick="waiting()">apply now</a>
+						<a class="text-uppercase loadmore-btn mx-auto d-block" type="button" href="#" onclick="waiting()">@Localizer["apply_now"]</a>
 					}
 					else
 					{
-						<a class="text-uppercase loadmore-btn mx-auto d-block" href="/apply/@Model.Slug/@user.Id">apply now</a>
+						<a class="text-uppercase loadmore-btn mx-auto d-block" href="/apply/@Model.Slug/@user.Id">@Localizer["apply_now"]</a>
 					}
 				}
 				else
 				{
-					<a target="_blank" class="text-uppercase loadmore-btn mx-auto d-block" href="/login">login to apply now</a>
+					<a target="_blank" class="text-uppercase loadmore-btn mx-auto d-block" href="/login">@Localizer["login_to_apply_now"]</a>
 				}
 			</div>
 
@@ -114,37 +114,37 @@
 <!-- End post Area -->
 <!-- Start callto-action Area -->
 <section class="callto-action-area section-gap">
-	<div class="container">
-		<div class="row d-flex justify-content-center">
-			<div class="menu-content col-lg-9">
-				<div class="title text-center">
-					<h1 class="mb-10 text-white">Join us today without any hesitation</h1>
-					<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-					<a class="primary-btn" href="#">I am a Candidate</a>
-					<a class="primary-btn" href="#">We are an Employer</a>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content col-lg-9">
+                <div class="title text-center">
+                    <h1 class="mb-10 text-white">@Localizer["join_us_today_without_any_hesitation"]</h1>
+                    <p class="text-white">
+                        @Localizer["additional_text"]
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- End calto-action Area -->
 
 <script>
 	function accessDenied() {
 		Swal.fire({
-			title: 'Sorry !',
-			text: 'Apply job only for user account.',
+			title: '@Localizer["sorry"]',
+			text: '@Localizer["apply_job_only_for_user_account"]',
 			icon: 'warning',
-			confirmButtonText: 'OK'
+			confirmButtonText: '@Localizer["OK"]'
 		});
 	}
 
 	function waiting() {
 		Swal.fire({
-			title: 'You already submitted your CV !',
-			text: 'Please wait for the results from the employer.',
+			title: '@Localizer["you_already_submitted_your_cv"]',
+			text: '@Localizer["please_wait_for_the_results_from_the_employer"]',
 			icon: 'info',
-			confirmButtonText: 'OK'
+			confirmButtonText: '@Localizer["OK"]'
 		});
 	}
 </script>

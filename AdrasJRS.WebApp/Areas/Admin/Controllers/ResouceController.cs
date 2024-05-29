@@ -94,14 +94,14 @@ public class ResourceController : Controller
         return View(model);
     }
 
-    [Route("update/{key}")]
+    [Route("update")]
     public async Task<IActionResult> Update(string key)
     {
         var resources = await _context.Resources
             .Where(t => t.Key == key)
             .OrderByDescending(t => t.Id)
             .GroupBy(i => i.Key)
-            .Select(i => new CreateResourceViewModel()
+            .Select(i => new UpdateResourceViewModel()
             {
                 Key = i.Key,
                 Value_EN = i.FirstOrDefault(j => j.CultureId == (int)CulturesEnum.English).Value,
@@ -111,10 +111,11 @@ public class ResourceController : Controller
             }).ToListAsync();
 
         var resource = resources.FirstOrDefault();
+
         return View(resource);
     }
 
-    [Route("update/{key}")]
+    [Route("update")]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Update(string key, UpdateResourceViewModel model)

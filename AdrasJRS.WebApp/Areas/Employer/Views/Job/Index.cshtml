@@ -8,7 +8,7 @@
 
 @{
     var user = await userManager.GetUserAsync(User);
-    ViewData["Title"] = "Job";
+    ViewData["Title"] = Localizer["job"];
 }
 
 <div class="content-wrapper">
@@ -17,7 +17,7 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-description">
-                        <a class="btn btn-primary" href="/employer/job/@user.Id/create">Add new job</a>
+                        <a class="btn btn-primary" href="/employer/job/@user.Id/create">@Localizer["add_new_job"]</a>
                     </p>
                     @*<form asp-action="Index" method="get" class="form-inline">
                     <div class="form-group mx-sm-3 mb-2">
@@ -26,7 +26,7 @@
                     <button type="submit" class="btn btn-primary mb-2">Filter</button>
                     </form>*@
                     <form asp-action="DeleteSelected" method="post">
-                        <input type="submit" class="btn btn-danger" value="Delete Selected" onclick="return confirm('Confirm deletion of the selected sections?') " />
+                        <input type="submit" class="btn btn-danger" value="Delete Selected" onclick="return confirm('@Localizer["confirm_deletion_of_the_selected_sections"]') " />
 
                         @section Scripts {
                             <script>
@@ -49,12 +49,12 @@
                                         <th>
                                             <input type="checkbox" id="checkall" />
                                         </th>
-                                        <th>@Html.DisplayNameFor(model => model.Name)</th>
-                                        <th>@Html.DisplayNameFor(model => model.CreateDate)</th>
-                                        <th>@Html.DisplayNameFor(model => model.Province)</th>
-                                        <th>@Html.DisplayNameFor(model => model.Time)</th>
-                                        <th>@Html.DisplayNameFor(model => model.Skills)</th>
-                                        <th>@Html.DisplayNameFor(model => model.Title)</th>
+                                        <th>@Localizer["name"]</th>
+                                        <th>@Localizer["create_date"]</th>
+                                        <th>@Localizer["province_name"]</th>
+                                        <th>@Localizer["time"]</th>
+                                        <th>@Localizer["skills"]</th>
+                                        <th>@Localizer["title_name"]</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -72,8 +72,8 @@
                                             <td>@Html.Raw(string.Join(", ", job.Skills.Select(skill => skill.Name)))</td>
                                             <td>@Html.DisplayFor(modelJob => job.Title.Name)</td>
                                             <td>
-                                                <a style="color: blue" href="/employer/job/@job.Id/update">Update</a> |
-                                                <a style="color: red" href="#" onclick="onDelete(@job.Id)">Delete</a>
+                                                <a style="color: blue" href="/employer/job/@job.Id/update">@Localizer["update"]</a> |
+                                                <a style="color: red" href="#" onclick="onDelete(@job.Id)">@Localizer["delete"]</a>
                                             </td>
                                         </tr>
                                     }
@@ -147,17 +147,17 @@
 <script>
     function onDelete(id) {
         Swal.fire({
-            title: 'Delete this job?',
-            text: "Are you sure to delete this job?",
+            title: '@Localizer["delete_this_job"]',
+            text: "@Localizer["are_you_sure_to_delete_this_job"]",
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Confirm'
+            confirmButtonText: '@Localizer["confirm"]'
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = '/employer/job/' + id + '/delete';
                 Swal.fire(
-                    'Delete!',
+                    '@Localizer["delete"]',
                     '',
                     'success'
                 )

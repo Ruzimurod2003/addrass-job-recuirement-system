@@ -1,7 +1,7 @@
 ﻿@model UpdateResourceViewModel
 
 @{
-    ViewData["Title"] = "Update resource";
+    ViewData["Title"] = @Localizer["update_resource"];
 }
 
 <div class="container">
@@ -9,42 +9,49 @@
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title text-center">FORM UPDATE RESOURCE</h4>
+                    <h4 class="card-title text-center">@Localizer["form_update_resource"]</h4>
                     <br />
                     <div class="row">
                         <div class="col-md-8 mx-auto">
                             <form asp-action="Update" enctype="multipart/form-data" id="form">
                                 <div class="form-group" style="margin-bottom: 15px">
-                                    <label asp-for="Key" class="form-label"></label><span class="text-danger">*</span>
+                                    <label asp-for="Key" class="form-label">@Localizer["key"]</label><span
+                                        class="text-danger">*</span>
                                     <input asp-for="Key" class="form-control" />
                                     <span asp-validation-for="Key" class="text-danger"></span>
                                 </div>
                                 <div class="form-group" style="margin-bottom: 15px">
-                                    <label asp-for="Value_EN" class="form-label"></label><span class="text-danger">*</span>
+                                    <label asp-for="Value_EN" class="form-label">@Localizer["value_en"]</label><span
+                                        class="text-danger">*</span>
                                     <input asp-for="Value_EN" class="form-control" />
                                     <span asp-validation-for="Value_EN" class="text-danger"></span>
                                 </div>
                                 <div class="form-group" style="margin-bottom: 15px">
-                                    <label asp-for="Value_RU" class="form-label"></label><span class="text-danger">*</span>
+                                    <label asp-for="Value_RU" class="form-label">@Localizer["value_ru"]</label><span
+                                        class="text-danger">*</span>
                                     <input asp-for="Value_RU" class="form-control" />
                                     <span asp-validation-for="Value_RU" class="text-danger"></span>
                                 </div>
                                 <div class="form-group" style="margin-bottom: 15px">
-                                    <label asp-for="Value_UZ" class="form-label"></label><span class="text-danger">*</span>
+                                    <label asp-for="Value_UZ" class="form-label">@Localizer["value_uz"]</label><span
+                                        class="text-danger">*</span>
                                     <input asp-for="Value_UZ" class="form-control" />
                                     <span asp-validation-for="Value_UZ" class="text-danger"></span>
                                 </div>
                                 <div class="form-group" style="margin-bottom: 15px">
-                                    <label asp-for="Value_DE" class="form-label"></label><span class="text-danger">*</span>
+                                    <label asp-for="Value_DE" class="form-label">@Localizer["value_de"]</label><span
+                                        class="text-danger">*</span>
                                     <input asp-for="Value_DE" class="form-control" />
                                     <span asp-validation-for="Value_DE" class="text-danger"></span>
                                 </div>
                                 <div class="form-group text-center" style="margin-bottom: 15px">
-                                    <input style="background-color:forestgreen" type="button" onclick="onUpdate()" value="Update" class="btn btn-primary" />
+                                    <input style="background-color:forestgreen" type="button" onclick="onUpdate()"
+                                        value="@Localizer["update"]" class="btn btn-primary" />
                                 </div>
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="text-center">
-                                    <a style="background-color:gray" class="btn btn-primary" href="/admin/resource">Back to List</a>
+                                    <a style="background-color:gray" class="btn btn-primary"
+                                        href="/admin/resource">@Localizer["back_to_list"]</a>
                                 </div>
                             </form>
                         </div>
@@ -63,17 +70,17 @@
     <script>
         function onUpdate() {
             Swal.fire({
-                title: 'Update this resource?',
-                text: "Are you sure to update this resource?",
+                title: '@Localizer["update_this_resource"]',
+                text: "@Localizer["are_you_sure_to_update_this_resource"]",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonText: '@Localizer["confirm"]'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $("#form").submit();
                     Swal.fire(
-                        'Success!',
+                        '@Localizer["success"]',
                         '',
                         'success'
                     )

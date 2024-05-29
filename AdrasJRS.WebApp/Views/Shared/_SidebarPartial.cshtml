@@ -10,7 +10,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Màu nền của lớp over */
+            background-color: rgba(0, 0, 0, 0.7);
             z-index: 1;
         }
 
@@ -29,39 +29,44 @@
 <div class="col-lg-4 sidebar">
     <!-- Provinces -->
     <div class="single-slidebar">
-        <h4 class="text-center">Jobs by Location <span class="lnr lnr-map-marker"></span></h4>
+        <h4 class="text-center">@Localizer["jobs_by_location"] <span class="lnr lnr-map-marker"></span></h4>
         <ul class="cat-list">
             @foreach (var province in ViewBag.ListProvinces)
             {
                 @if (province.Jobs.Count > 0)
                 {
-                    <li><a class="justify-content-between d-flex" href="/job?slug=@province.Slug"><p>@province.Name</p><span>@province.Jobs.Count</span></a></li>
+                    <li><a class="justify-content-between d-flex" href="/job?slug=@province.Slug">
+                            <p>@province.Name</p><span>@province.Jobs.Count</span>
+                        </a></li>
                 }
             }
         </ul>
     </div>
     <!-- Skills -->
     <div class="single-slidebar">
-        <h4 class="text-center">Jobs by Skill <span class="lnr lnr-tag"></span></h4>
+        <h4 class="text-center">@Localizer["jobs_by_skill"] <span class="lnr lnr-tag"></span></h4>
         <ul class="cat-list">
             @foreach (var skill in ViewBag.ListSkills)
             {
                 @if (skill.Jobs.Count > 0)
                 {
-                    <li><a class="justify-content-between d-flex" href="/job?slug=@skill.Slug"><p>@skill.Name</p><span>@skill.Jobs.Count</span></a></li>
+                    <li><a class="justify-content-between d-flex" href="/job?slug=@skill.Slug">
+                            <p>@skill.Name</p><span>@skill.Jobs.Count</span>
+                        </a></li>
                 }
             }
         </ul>
     </div>
     <!-- Jobs -->
     <div class="single-slidebar">
-        <h4 class="text-center">Top rated job posts</h4>
+        <h4 class="text-center">@Localizer["top_rated_job_posts"]</h4>
         <div class="active-relatedjob-carusel">
             @foreach (var job in ViewBag.ListJobs)
             {
                 <div class="single-rated">
                     <a href="/company/@job.AppUser.Slug">
-                        <img style="width: 300px; height: 150px; margin: 0 auto;" src="https://localhost:7211/images/employers/@job.AppUser.UrlAvatar" alt="employer">
+                        <img style="width: 300px; height: 150px; margin: 0 auto;"
+                            src="https://localhost:7211/images/employers/@job.AppUser.UrlAvatar" alt="employer">
                     </a>
                     <br />
                     <a href="/job/@job.Slug">
@@ -81,7 +86,8 @@
                                 @foreach (var skill in job.Skills)
                                 {
                                     <li style="display: inline-block; margin: 10px;">
-                                        <a href="/job?slug=@skill.Slug" style="color: black; background-color: #f2f2f2; padding: 5px 10px; border-radius: 20px; text-decoration: none;">
+                                        <a href="/job?slug=@skill.Slug"
+                                            style="color: black; background-color: #f2f2f2; padding: 5px 10px; border-radius: 20px; text-decoration: none;">
                                             @skill.Name
                                         </a>
                                     </li>
@@ -94,25 +100,28 @@
                     <hr />
                     <div style="display:flex; justify-content: space-between;">
                         <div>
-                            <h5><strong>Job Nature: @job.Time.Name</strong></h5>
+                            <h5><strong>@Localizer["job_nature"]: @job.Time.Name</strong></h5>
                             <h5 style="color: blue"><span class="lnr lnr-book"></span> <strong>@job.Title.Name</strong></h5>
                             <h5 style="color: green"><strong>$ @job.MinSalary - @job.MaxSalary USD</strong></h5>
                         </div>
                     </div>
-                    <a href="/job/@job.Slug" style="display: flex; justify-content: center;" class="btns text-uppercase">View job</a>
+                    <a href="/job/@job.Slug" style="display: flex; justify-content: center;"
+                        class="btns text-uppercase">@Localizer["view_jjob"]</a>
                 </div>
             }
         </div>
     </div>
     <!-- Blogs -->
     <div class="single-slidebar">
-        <h4 class="text-center">Carrer Advice Blog</h4>
+        <h4 class="text-center">@Localizer["carrer_advice_blog"]</h4>
         <div class="blog-list">
             @foreach (var blog in ViewBag.ListBlogs)
             {
                 <div class="single-blog" style="background:#000 url(https://localhost:7211/images/blogs/@blog.Image);">
                     <div class="over"></div>
-                    <a href="/blog/@blog.Slug"><h4>@blog.Title</h4></a>
+                    <a href="/blog/@blog.Slug">
+                        <h4>@blog.Title</h4>
+                    </a>
                     <div class="meta justify-content-between d-flex">
                         <p>@GetTimeAgo(blog.CreateDate)</p>
                         <p><span class="lnr lnr-eye"></span> @blog.Popular</p>

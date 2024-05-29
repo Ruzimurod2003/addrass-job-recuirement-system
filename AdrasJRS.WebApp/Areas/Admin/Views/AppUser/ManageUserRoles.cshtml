@@ -1,7 +1,7 @@
 ﻿@model List<AdrasJRS.Data.ViewModel.UserRolesViewModel>
 
 @{
-    ViewData["Title"] = "Set role for user";
+    ViewData["Title"] = Localizer["set_role_for_user"];
     var userId = ViewBag.userId;
 }
 
@@ -10,7 +10,7 @@
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title text-center">SET ROLE FOR USER</h4>
+                    <h4 class="card-title text-center">@Localizer["set_user_role_for_user"]</h4>
                     <div class="row">
                         <div class="col-md-8 mx-auto">
                             <form method="post" enctype="multipart/form-data" id="form">
@@ -28,9 +28,9 @@
                                 }
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="form-group text-center" style="margin-bottom: 15px">
-                                    <input style="background-color:forestgreen" type="button" onclick="onConfirm()" value="Confirm" class="btn btn-primary" />
+                                    <input style="background-color:forestgreen" type="button" onclick="onConfirm()" value="@Localizer["confirm"]" class="btn btn-primary" />
                                     <a asp-action="index"
-                                       class="btn btn-secondary" style="width:auto">Cancel</a>
+                                       class="btn btn-secondary" style="width:auto">@Localizer["cancel"]</a>
                                 </div>
                             </form>
                         </div>
@@ -58,17 +58,17 @@
 
         function onConfirm() {
             Swal.fire({
-                title: 'Set role for user?',
-                text: "Are you sure to set role for this user?",
+                title: '@Localizer["set_role_for_user"]',
+                text: "@Localizer["are_you_sure_to_set_role_for_this_user"]",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonText: '@Localizer["confirm"]'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $("#form").submit();
                     Swal.fire(
-                        'Success!',
+                        '@Localizer["success"]',
                         '',
                         'success'
                     )

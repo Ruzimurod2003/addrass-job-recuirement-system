@@ -13,9 +13,10 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
                 <h1 class="text-white">
-                    <span>Want to be an employer ?</span>
+                    <span>@Localizer["want_to_be_an_employer"]</span>
                 </h1>
-                <p class="text-white"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> Register now !</a></p>
+                <p class="text-white"><a href="/">@Localizer["home"] </a>  <span class="lnr lnr-arrow-right"></span>  
+                <a href="#"> @Localizer["register_now"]</a></p>
             </div>
         </div>
     </div>
@@ -28,80 +29,80 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 style="text-align: center" class="card-title">Application for approval to become an employer</h4>
+                        <h4 style="text-align: center" class="card-title">@Localizer["application_for_approval_to_become_an_employer"]</h4>
                         <br />
                         <div class="col-md-4i">
                             <form asp-action="Register" enctype="multipart/form-data" id="form">
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label asp-for="Email" class="control-label"></label><span class="text-danger">*</span>
+                                            <label asp-for="Email" class="control-label">@Localizer["email"]</label><span class="text-danger">*</span>
                                             <input asp-for="Email" class="form-control" />
                                             <span asp-validation-for="Email" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="Description" class="control-label"></label><span class="text-danger">*</span>
+                                            <label asp-for="Description" class="control-label">@Localizer["description"]</label><span class="text-danger">*</span>
                                             <textarea asp-for="Description" class="form-control ckeditor"></textarea>
                                             <span asp-validation-for="Description" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="Content" class="control-label"></label><span class="text-danger">*</span>
+                                            <label asp-for="Content" class="control-label">@Localizer["content"]</label><span class="text-danger">*</span>
                                             <textarea asp-for="Content" class="form-control ckeditor"></textarea>
                                             <span asp-validation-for="Content" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="Contact" class="control-label"></label><span class="text-danger">*</span>
+                                            <label asp-for="Contact" class="control-label">@Localizer["contact"]</label><span class="text-danger">*</span>
                                             <textarea asp-for="Contact" class="form-control ckeditor"></textarea>
                                             <span asp-validation-for="Contact" class="text-danger"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label asp-for="FullName" class="control-label"></label><span class="text-danger">*</span>
+                                            <label asp-for="FullName" class="control-label">@Localizer["full_name"]</label><span class="text-danger">*</span>
                                             <input asp-for="FullName" class="form-control" />
                                             <span asp-validation-for="FullName" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="UrlAvatar" class="control-label"></label><span class="text-danger">*</span>
+                                            <label asp-for="UrlAvatar" class="control-label">@Localizer["url_avatar"]</label><span class="text-danger">*</span>
                                             <input type="file" asp-for="UrlAvatar" class="form-control" accept="image/*" id="imgInp" />
                                             <span asp-validation-for="UrlAvatar" class="text-danger"></span>
                                             <img id="blah" src="#" alt="your logo" style="width: 335px;" />
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="CompanySize" class="control-label"></label><span class="text-danger">*</span>
+                                            <label asp-for="CompanySize" class="control-label">@Localizer["company_size"]</label><span class="text-danger">*</span>
                                             <input asp-for="CompanySize" class="form-control" />
                                             <span asp-validation-for="CompanySize" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="WorkingDays" class="control-label"></label><span class="text-danger">*</span>
+                                            <label asp-for="WorkingDays" class="control-label">@Localizer["working_days"]</label><span class="text-danger">*</span>
                                             <input asp-for="WorkingDays" class="form-control" />
                                             <span asp-validation-for="WorkingDays" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="Phone" class="control-label"></label><span class="text-danger">*</span>
+                                            <label asp-for="Phone" class="control-label">@Localizer["phone"]</label><span class="text-danger">*</span>
                                             <input asp-for="Phone" class="form-control" />
                                             <span asp-validation-for="Phone" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="Location" class="control-label"></label><span class="text-danger">*</span>
+                                            <label asp-for="Location" class="control-label">@Localizer["location"]</label><span class="text-danger">*</span>
                                             <input asp-for="Location" class="form-control" />
                                             <span asp-validation-for="Location" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="WebsiteURL" class="control-label"></label><span class="text-danger">*</span>
+                                            <label asp-for="WebsiteURL" class="control-label">@Localizer["web_site_url"]</label><span class="text-danger">*</span>
                                             <input asp-for="WebsiteURL" class="form-control" />
                                             <span asp-validation-for="WebsiteURL" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="ProvinceId" class="control-label"></label><span class="text-danger">*</span>
+                                            <label asp-for="ProvinceId" class="control-label">@Localizer["province_name"]</label><span class="text-danger">*</span>
                                             <select asp-for="ProvinceId" class="form-control" asp-items="ViewBag.ProvinceId"></select>
                                         </div>
                                         <div class="form-group">
-                                            <label asp-for="CountryId" class="control-label"></label><span class="text-danger">*</span>
+                                            <label asp-for="CountryId" class="control-label">@Localizer["country_name"]</label><span class="text-danger">*</span>
                                             <select asp-for="CountryId" class="form-control" asp-items="ViewBag.CountryId"></select>
                                         </div>
                                         <div class="form-group text-center" style="margin-bottom: 15px">
-                                            <input style="background-color:forestgreen" type="button" onclick="onRegister()" value="Register" class="btn btn-primary" />
+                                            <input style="background-color:forestgreen" type="button" onclick="onRegister()" value="@Localizer["register"]" class="btn btn-primary" />
                                         </div>
                                     </div>
                                 </div>
@@ -146,15 +147,15 @@
         function onRegister() {
             if ($('#imgInp').get(0).files.length === 0) {
                 Swal.fire(
-                    'Fail',
-                    'Please select a company logo.',
+                    '@Localizer["fail"]',
+                    '@Localizer["please_select_a_company_logo"]',
                     'error'
                 );
                 return; // Stop further execution
             }
             Swal.fire({
-                title: 'Register as an employer?',
-                text: "Are you sure you want to register as an employer?",
+                title: '@Localizer["register_as_an_employer"]',
+                text: "@Localizer["are_you_sure_you_want_to_register_as_an_employer"]",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
@@ -163,8 +164,8 @@
                 if (result.isConfirmed) {
                     $("#form").submit();
                     Swal.fire(
-                        'Success!',
-                        'Your account has been successfully created and your account name has been successfully changed. Please wait for confirmation to become an employer.',
+                        '@Localizer["success"]',
+                        '@Localizer["your_account_has_been_successfully_created_and_your_account_name_has_been_successfully_changed_please_wait_for_confirmation_to_become_an_employer"]',
                         'success'
                     )
                 }

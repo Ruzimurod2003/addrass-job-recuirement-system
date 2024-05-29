@@ -10,6 +10,7 @@
 
 <!-- Css Styles -->
 <link rel="stylesheet" href="~/assets/css/style.css" type="text/css">
+
 <head>
     <style>
         /* Áp dụng CSS cho bảng */
@@ -19,15 +20,15 @@
             border-radius: 10px;
             overflow: hidden;
         }
-        
+
         .table-bordered th,
         .table-bordered td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: center;
-            vertical-align:middle;
+            vertical-align: middle;
         }
-        
+
         .table-bordered th {
             background-color: #f2f2f2;
         }
@@ -39,13 +40,13 @@
 
         .table-content img {
             width: 150px;
-            height:150px;
+            height: 150px;
             display: block;
             margin: 0 auto;
             border-radius: 20px;
             object-fit: cover;
         }
-        
+
         .shoping__cart__table {
             border: 1px solid grey;
             margin-bottom: 20px;
@@ -78,7 +79,7 @@
         .employer-comment {
             margin-bottom: 10px;
         }
-        
+
         .employer-address strong,
         .employer-city strong,
         .employer-email strong,
@@ -86,7 +87,7 @@
         .employer-rating strong {
             color: #555;
         }
-        
+
         .employer-comment strong {
             display: block;
             margin-top: 10px;
@@ -126,16 +127,16 @@
         .modal-body {
             padding: 2rem;
         }
-        
+
         .modal-body hr {
             margin-top: 2rem;
             margin-bottom: 2rem;
         }
-        
+
         .modal-body strong {
             font-weight: bold;
         }
-        
+
         .modal-body label.control-label {
             font-weight: bold;
         }
@@ -160,12 +161,12 @@
             background-color: #007bff;
             border-color: #007bff;
         }
-        
+
         .btn-primary:hover {
             background-color: #0069d9;
             border-color: #0062cc;
         }*/
-        
+
         .btn-primary:focus {
             box-shadow: none;
         }
@@ -174,7 +175,7 @@
         .modal-body .form-group {
             margin-bottom: 0;
         }
-        
+
         .modal-body .form-group div:not(:last-child) {
             margin-bottom: 0.5rem;
         }
@@ -188,10 +189,11 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
                 <h1 class="text-white">
-                    <span>Interview job</span>
+                    <span>@Localizer["interview_job"]</span>
                 </h1>
                 <p class="text-white link-nav">
-                    <a href="/">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="/"> Home page</a>
+                    <a href="/">@Localizer["home"] </a> <span class="lnr lnr-arrow-right"></span> <a href="/">
+                        @Localizer["home_page"]</a>
                 </p>
             </div>
         </div>
@@ -207,43 +209,52 @@
                     <div class="card-body">
                         <div class="featured__controls">
                             <ul>
-                                <li class="active" data-filter="*">All</li>
-                                <li data-filter=".wait">Waiting</li>
-                                <li data-filter=".cancel">Canceled</li>
-                                <li data-filter=".accept">Accepted</li>
-                                <li data-filter=".deny">Denied</li>
+                                <li class="active" data-filter="*">@Localizer["all"]</li>
+                                <li data-filter=".wait">@Localizer["waiting"]</li>
+                                <li data-filter=".cancel">@Localizer["cancelled"]</li>
+                                <li data-filter=".accept">@Localizer["accepted"]</li>
+                                <li data-filter=".deny">@Localizer["denied"]</li>
                             </ul>
                         </div>
-                        <div class="featured__filter" >
+                        <div class="featured__filter">
                             @foreach (var CV in Model)
                             {
-                                <div class="shoping__cart__table mix @if(CV.CVStatus == 0) {<text>deny</text>}
-                                                                     @if(CV.CVStatus == 1) {<text>wait</text>}
-                                                                     @if(CV.CVStatus == -1) {<text>cancel</text>}
-                                                                     @if(CV.CVStatus == 2 || CV.CVStatus == 3) {<text>accept</text>}">
+                                <div class="shoping__cart__table mix @if(CV.CVStatus == 0) {
+                            <text>deny</text>
+}
+                                                                     @if(CV.CVStatus == 1) {
+                            <text>wait</text>
+}
+                                                                     @if(CV.CVStatus == -1) {
+                            <text>cancel</text>
+}
+                                                                     @if(CV.CVStatus == 2 || CV.CVStatus == 3) {
+                            <text>accept</text>
+}">
                                     <section class="d-flex mb-3" style="justify-content: space-between;">
                                         <p>
-                                            <span>CV: <b>@CV.JobName</b></span> | Apply date: @CV.ApplyDate.ToString("dd/MM/yyyy") |
+                                            <span>@Localizer["CV"]: <b>@CV.JobName</b></span> | @Localizer["apply_date"]:
+                                            @CV.ApplyDate.ToString("dd/MM/yyyy") |
                                             @{
                                                 switch (CV.CVStatus)
                                                 {
                                                     case 0:
-                                                    <span class="text-danger"><b>Denied</b></span>
+                                                        <span class="text-danger"><b>@Localizer["denied"]</b></span>
                                                         break;
                                                     case 1:
-                                                    <span class="text-success"><b>Waiting</b></span>
+                                                        <span class="text-success"><b>@Localizer["waiting"]</b></span>
                                                         break;
                                                     case -1:
-                                                    <span class="text-success"><b>Canceled</b></span>
+                                                        <span class="text-success"><b>@Localizer["cancelled"]</b></span>
                                                         break;
                                                     case 2:
-                                                    <span class="text-success"><b>Accepted</b></span>
+                                                        <span class="text-success"><b>@Localizer["accepted"]</b></span>
                                                         break;
                                                     case 3:
-                                                    <span class="text-success"><b>Accepted</b></span>
+                                                        <span class="text-success"><b>@Localizer["accepted"]</b></span>
                                                         break;
                                                     default:
-                                                    <span class="text-success"></span>
+                                                        <span class="text-success"></span>
                                                         break;
                                                 }
                                             }
@@ -251,27 +262,35 @@
                                         <div>
                                             @if (CV.CVStatus == 0)
                                             {
-                                                <button type="button" onclick="onDelete('@CV.CVId')" class="btn btn-danger">Delete CV</button>
+                                                <button type="button" onclick="onDelete('@CV.CVId')"
+                                                    class="btn btn-danger">@Localizer["delete_CV"]</button>
                                             }
                                             @if (CV.CVStatus == 1)
                                             {
-                                                <button type="button" onclick="onCancel('@CV.CVId')" class="btn btn-danger">Cancel CV</button>
+                                                <button type="button" onclick="onCancel('@CV.CVId')"
+                                                    class="btn btn-danger">@Localizer["cancel_CV"]</button>
                                             }
                                             @if (CV.CVStatus == 2)
                                             {
-                                                <button type="button" onclick="onWaiting('@CV.CVId')" class="btn btn-danger">Waiting for feedback</button>
+                                                <button type="button" onclick="onWaiting('@CV.CVId')"
+                                                    class="btn btn-danger">@Localizer["waiting_for_feedback"]</button>
                                             }
                                             @if (CV.CVStatus == 3)
                                             {
-                                                <button class="btn btn-primary" href="#" data-toggle="modal" data-target="#viewFeedback-@CV.CVId">Feedback</button>
-                                                
+                                                <button class="btn btn-primary" href="#" data-toggle="modal"
+                                                    data-target="#viewFeedback-@CV.CVId">@Localizer["feedback"]</button>
+
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="viewFeedback-@CV.CVId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="viewFeedback-@CV.CVId" tabindex="-1" role="dialog"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Employer Feedback</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                                    @Localizer["aployer_feedback"]
+                                                                </h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
@@ -279,32 +298,40 @@
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <div class="form-group">
-                                                                            <label class="control-label">Employer Information:</label>
-                                                                            <p class="job-name">Job name: @CV.JobName </p>
-                                                                            <p class="job-name">Feedback date: @CV.CommentOn</p>
+                                                                            <label class="control-label">
+                                                                                @Localizer["aployer_information"]:</label>
+                                                                            <p class="job-name">@Localizer["job_name"]:
+                                                                                @CV.JobName </p>
+                                                                            <p class="job-name">@Localizer["feedback_date"]:
+                                                                                @CV.CommentOn</p>
                                                                             <hr />
                                                                             <div class="employer-address">
-                                                                                <strong>Address:</strong> @CV.EmployerAddress
+                                                                                <strong>@Localizer["address"]:</strong>
+                                                                                @CV.EmployerAddress
                                                                             </div>
                                                                             <br />
                                                                             <div class="employer-city">
-                                                                                <strong>City:</strong> @CV.EmployerCity
+                                                                                <strong>@Localizer["city"]:</strong>
+                                                                                @CV.EmployerCity
                                                                             </div>
                                                                             <br />
                                                                             <div class="employer-email">
-                                                                                <strong>Email:</strong> @CV.EmployerEmail
+                                                                                <strong>@Localizer["email"]:</strong>
+                                                                                @CV.EmployerEmail
                                                                             </div>
                                                                             <br />
                                                                             <div class="employer-phone">
-                                                                                <strong>Phone:</strong> @CV.EmployerPhone
+                                                                                <strong>@Localizer["phone"]:</strong>
+                                                                                @CV.EmployerPhone
                                                                             </div>
                                                                             <hr />
                                                                             <div class="employer-rating">
-                                                                                <strong>Rating:</strong> @CV.EmployerRating
+                                                                                <strong>@Localizer["rating"]:</strong>
+                                                                                @CV.EmployerRating
                                                                             </div>
                                                                             <hr />
                                                                             <div class="employer-comment">
-                                                                                <strong>Comment:</strong><br />
+                                                                                <strong>@Localizer["comment"]:</strong><br />
                                                                                 @Html.Raw(CV.EmployerComment)
                                                                             </div>
                                                                         </div>
@@ -312,7 +339,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary"
+                                                                    data-dismiss="modal">@Localizer["close"]</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -320,25 +348,27 @@
                                             }
                                             @if (CV.CVStatus == -1)
                                             {
-                                                <button type="button" onclick="onContinue('@CV.CVId')" class="btn btn-primary">Continue CV</button>
+                                                <button type="button" onclick="onContinue('@CV.CVId')"
+                                                    class="btn btn-primary">@Localizer["continue_CV"]</button>
                                             }
                                         </div>
                                     </section>
-                                        <table class="table table-bordered" style="text-align: center">
+                                    <table class="table table-bordered" style="text-align: center">
                                         <thead>
                                             <tr>
-                                                <th>Employer</th>
-                                                <th>Job</th>
-                                                <th>Phone number</th>
-                                                <th>Email</th>
-                                                <th>Apply date</th>
-                                                <th>Your CV</th>
+                                                <th>@Localizer["employer"]</th>
+                                                <th>@Localizer["job"]</th>
+                                                <th>@Localizer["phone_number"]</th>
+                                                <th>@Localizer["email"]</th>
+                                                <th>@Localizer["apply_date"]</th>
+                                                <th>@Localizer["your_CV"]</th>
                                             </tr>
                                         </thead>
                                         <tbody id="items">
                                             <tr class="targetfields">
                                                 <td>
-                                                    <img src="https://localhost:7211/images/employers/@CV.EmployerLogo" alt="@CV.JobName" style="width: 100px">
+                                                    <img src="https://localhost:7211/images/employers/@CV.EmployerLogo"
+                                                        alt="@CV.JobName" style="width: 100px">
                                                 </td>
                                                 <td>
                                                     <span>@CV.JobName</span>
@@ -353,15 +383,21 @@
                                                     <span>@CV.ApplyDate.ToString("dd/MM/yyyy")</span>
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#viewYourCVModal-@CV.CVId">View CV</a>
+                                                    <a class="btn btn-primary" href="#" data-toggle="modal"
+                                                        data-target="#viewYourCVModal-@CV.CVId">@Localizer["view_CV"]</a>
 
                                                     <!-- Modal -->
-                                                    <div class="modal fade" id="viewYourCVModal-@CV.CVId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                    <div class="modal fade" id="viewYourCVModal-@CV.CVId" tabindex="-1"
+                                                        role="dialog" aria-labelledby="exampleModalLabel"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg modal-dialog-centered"
+                                                            role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">CV: @CV.UserName</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">CV:
+                                                                        @CV.UserName</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
                                                                 </div>
@@ -369,13 +405,16 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <img src="https://localhost:7211/images/cvs/@CV.CVImage" alt="@CV.UserName" style="width: 800px; height: 1000px">
+                                                                                <img src="https://localhost:7211/images/cvs/@CV.CVImage"
+                                                                                    alt="@CV.UserName"
+                                                                                    style="width: 800px; height: 1000px">
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-primary"
+                                                                        data-dismiss="modal">@Localizer["close"]</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -403,17 +442,17 @@
     <script>
         function onDelete(id) {
             Swal.fire({
-                title: 'Delete this CV?',
-                text: "Are you sure to delete the CV?",
+                title: '@Localizer["delete_this_CV"]",
+                        text: "@Localizer["are_you_sure_to_delete_the_CV"]",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonText: '@Localizer["confirm"]'
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = '/apply/@user.Id/' + id + '/delete';
                     Swal.fire(
-                        'Delete!',
+                        '@Localizer["delete"]',
                         '',
                         'success'
                     )
@@ -423,17 +462,17 @@
 
         function onCancel(id) {
             Swal.fire({
-                title: 'Cancel this CV?',
-                text: "Are you sure to cancel CV?",
+                title: '@Localizer["cancel_this_CV"]',
+                text: "@Localizer["are_you_sure_to_cancel_CV?"]",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonText: '@Localizer["confirm"]'
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = '/apply/@user.Id/' + id + '/update/' + -1;
                     Swal.fire(
-                        'Cancel!',
+                        '@Localizer["Cancel"]',
                         '',
                         'success'
                     )
@@ -443,17 +482,17 @@
 
         function onContinue(id) {
             Swal.fire({
-                title: 'Continue this CV?',
-                text: "Are you sure to continue CV?",
+                title: '@Localizer["continue_this_CV"]',
+                text: "@Localizer["are_you_sure_to_continue_CV"]",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirm'
+                confirmButtonText: '@Localizer["confirm"]'
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = '/apply/@user.Id/' + id + '/update/' + 1;
                     Swal.fire(
-                        'Continue!',
+                        '@Localizer["continue"]',
                         '',
                         'success'
                     )
@@ -463,11 +502,11 @@
 
         function onWaiting() {
             Swal.fire({
-                title: 'Congratulations ! Your CV has been accepted.',
-                text: 'Please wait for the feedback from the employer.',
+                title: '@Localizer["congratulations_your_CV_has_been_accepted"]',
+                text: '@Localizer["please_wait_for_the_feedback_from_the_employer"]',
                 icon: 'info',
-                confirmButtonText: 'OK'
+                confirmButtonText: '@Localizer["OK"]'
             });
         }
-    </script>    
+    </script>
 }

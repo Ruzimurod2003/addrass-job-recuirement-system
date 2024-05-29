@@ -1,34 +1,34 @@
 ﻿@model AdrasJRS.Data.Entities.Category
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = @Localizer["create_category"];
 }
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title text-center">FORM CREATE CATEGORY</h4>
+                    <h4 class="card-title text-center">@Localizer["form_create_category"]</h4>
                     <br />
                     <div class="row">
                         <div class="col-md-8 mx-auto">
                             <form asp-action="Create" enctype="multipart/form-data" id="form">
                                 <div class="form-group" style="margin-bottom: 15px">
-                                    <label asp-for="Name" class="form-label"></label><span class="text-danger">*</span>
+                                    <label asp-for="Name" class="form-label">@Localizer["name"]</label><span class="text-danger">*</span>
                                     <input asp-for="Name" class="form-control" />
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
                                 <div class="form-group" style="margin-bottom: 15px">
-                                    <label asp-for="Description" class="form-label"></label><span class="text-danger">*</span>
+                                    <label asp-for="Description" class="form-label">@Localizer["description"]</label><span class="text-danger">*</span>
                                     <input asp-for="Description" class="form-control" />
                                     <span asp-validation-for="Description" class="text-danger"></span>
                                 </div>
                                 <div class="form-group text-center" style="margin-bottom: 15px">
-                                    <input style="background-color:forestgreen" type="button" onclick="onCreate()" value="Create" class="btn btn-primary" />
+                                    <input style="background-color:forestgreen" type="button" onclick="onCreate()" value="@Localizer["create"]" class="btn btn-primary" />
                                 </div>
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="text-center">
-                                    <a style="background-color:gray" class="btn btn-primary" href="/admin/category">Back to List</a>
+                                    <a style="background-color:gray" class="btn btn-primary" href="/admin/category">@Localizer["back_to_list"]</a>
                                 </div>
                             </form>
                         </div>
@@ -46,17 +46,17 @@
     <script>
         function onCreate() {
             Swal.fire({
-                title: 'Add new category?',
-                text: "Are you sure to add new category?",
+                title: '@Localizer["add_new_category"]',
+                text: "@Localizer["are_you_sure_to_add_new_category"]",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Success'
+                confirmButtonText: '@Localizer["success"]'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $("#form").submit();
                     Swal.fire(
-                        'Created!',
+                        '@Localizer["created"]',
                         '',
                         'success'
                     )

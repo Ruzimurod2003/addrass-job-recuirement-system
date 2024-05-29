@@ -66,12 +66,6 @@ public class HomeController : Controller
         return View();
     }
 
-    [Route("elements")]
-    public IActionResult Elements()
-    {
-        return View();
-    }
-
     [Route("privacy")]
     public IActionResult Privacy()
     {

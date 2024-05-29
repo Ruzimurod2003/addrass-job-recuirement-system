@@ -11,9 +11,10 @@
 		<div class="row d-flex align-items-center justify-content-center">
 			<div class="about-content col-lg-12">
 				<h1 class="text-white">
-					@Model.Title
+					<span>@Localizer["blog_detail"]</span> 
 				</h1>
-				<p class="text-white link-nav"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> Blog Details</a></p>
+				<p class="text-white link-nav"><a href="/">@Localizer["home"] </a>  <span class="lnr lnr-arrow-right"></span>  
+                <a href="#"> @Localizer["blog_details"]</a></p>
 			</div>
 		</div>
 	</div>
@@ -30,7 +31,7 @@
                         <li>
                             <a href="#">
 									<img style="width: 80px" src="https://localhost:7211/images/employers/@Model.AppUser.UrlAvatar"
-										 alt="blog image"> Content Writer: @Model.Author • @Model.CreateDate.ToString("dddd, yy/MM/yyyy - HH:mm:ss - tt")
+										 alt="blog image"> @Localizer["content_writer"]: @Model.Author • @Model.CreateDate.ToString("dddd, yy/MM/yyyy - HH:mm:ss - tt")
                             </a>
                         </li>
                     </ul>
@@ -51,7 +52,7 @@
                                 <ul>
                                     @*<li><a href="#"><span class="lnr lnr-heart"></span>	4 likes</a></li>
                                     <li><a href="#"><span class="lnr lnr-bubble"></span> 06 Comments</a></li>*@
-                                    <li><a href="#"><span class="lnr lnr-eye"></span> @Model.Popular Views</a></li>
+                                    <li><a href="#"><span class="lnr lnr-eye"></span> @Model.Popular @Localizer["views"]</a></li>
                                 </ul>
                             </div>
                             <div class="social-wrap col-lg-6">

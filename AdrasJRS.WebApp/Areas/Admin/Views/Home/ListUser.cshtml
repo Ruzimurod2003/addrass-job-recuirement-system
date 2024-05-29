@@ -2,7 +2,7 @@
 @using X.PagedList;
 @using X.PagedList.Mvc.Core;
 @{
-    ViewData["Title"] = "All User";
+    ViewData["Title"] = Localizer["all_user"];
 }
 
 <div class="content-wrapper">
@@ -16,19 +16,19 @@
                             <thead>
                                 <tr>
                                     <th>
-                                        Employer Name
+                                        @Localizer["name"]
                                     </th>
                                     <th>
-                                        Address
+                                        @Localizer["address"]
                                     </th>
                                     <th>
-                                        Phone
+                                        @Localizer["phone"]
                                     </th>
                                     <th>
-                                        Email
+                                        @Localizer["email"]
                                     </th>
                                     <th>
-                                        Create date
+                                        @Localizer["create_date"]
                                     </th>
                                 </tr>
                             </thead>
@@ -62,18 +62,18 @@
                     <div class="text-center">
                         <ul class="pagination">
                             @Html.PagedListPager((IPagedList)Model, page =>
-                            Url.Action("ListUser", new { page }),
-                            new PagedListRenderOptions
+                                     Url.Action("ListUser", new { page }),
+                                     new PagedListRenderOptions
                             {
-                            Display = PagedListDisplayMode.IfNeeded,
-                            LiElementClasses = new string[] { "page-item" },
-                            UlElementClasses = new string[] { "pagination" },
-                            PageClasses = new string[] { "page-link" },
-                            MaximumPageNumbersToDisplay = 7, // Maximum number of pages displayed
-                            LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
-                            LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
-                            LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
-                            LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
+                                Display = PagedListDisplayMode.IfNeeded,
+                                LiElementClasses = new string[] { "page-item" },
+                                UlElementClasses = new string[] { "pagination" },
+                                PageClasses = new string[] { "page-link" },
+                                MaximumPageNumbersToDisplay = 7, // Maximum number of pages displayed
+                                LinkToPreviousPageFormat = "<span aria-hidden=\"true\">&lsaquo;</span>",
+                                LinkToNextPageFormat = "<span aria-hidden=\"true\">&rsaquo;</span>",
+                                LinkToFirstPageFormat = "<span aria-hidden=\"true\">&lsaquo;&lsaquo;</span>",
+                                LinkToLastPageFormat = "<span aria-hidden=\"true\">&rsaquo;&rsaquo;</span>"
                             })
                         </ul>
                     </div>
@@ -91,33 +91,33 @@
         overflow: hidden;
     }
 
-        .table-bordered th {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-            vertical-align: middle;
-            background-color: #f2f2f2;
-        }
+    .table-bordered th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+        vertical-align: middle;
+        background-color: #f2f2f2;
+    }
 
-        .table-bordered td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-            vertical-align: middle;
-        }
+    .table-bordered td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+        vertical-align: middle;
+    }
 
     .table-content {
         font-size: 16px;
     }
 
-        .table-content img {
-            width: 150px;
-            height: 150px;
-            display: block;
-            margin: 0 auto;
-            border-radius: 20px;
-            object-fit: cover;
-        }
+    .table-content img {
+        width: 150px;
+        height: 150px;
+        display: block;
+        margin: 0 auto;
+        border-radius: 20px;
+        object-fit: cover;
+    }
 
     .pagination {
         list-style-type: none;
@@ -127,21 +127,21 @@
         margin-top: 20px;
     }
 
-        .pagination li {
-            margin: 0 5px;
-        }
+    .pagination li {
+        margin: 0 5px;
+    }
 
-            .pagination li a {
-                display: inline-block;
-                padding: 5px 10px;
-                border: 1px solid #ccc;
-                color: #333;
-                text-decoration: none;
-                border-radius: 5px;
-            }
+    .pagination li a {
+        display: inline-block;
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        color: #333;
+        text-decoration: none;
+        border-radius: 5px;
+    }
 
-            .pagination li.active a {
-                background-color: #333;
-                color: #fff;
-            }
+    .pagination li.active a {
+        background-color: #333;
+        color: #fff;
+    }
 </style>

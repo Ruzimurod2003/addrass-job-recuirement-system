@@ -11,12 +11,12 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Admin</title>
+    <title>@Localizer["project_title"]</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="~/assets/admin/assets/img/favicon/favicon.ico" />
+    <link rel="icon" href="~/assets/admin/assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -100,7 +100,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bolder ms-2">home page</span>
+                        <span class="app-brand-text demo menu-text fw-bolder ms-2">@Localizer["project_name"]</span>
                     </a>
 
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -115,29 +115,29 @@
                     <li class="menu-item active">
                         <a href="/admin" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                            <div data-i18n="Analytics">Dashboard</div>
+                            <div data-i18n="Analytics">@Localizer["dashboard"]</div>
                         </a>
                     </li>
 
                     <!--  User -->
                     <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">All User </span>
+                        <span class="menu-header-text">@Localizer["all_user"]</span>
                     </li>
 
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class='menu-icon tf-icons bx bx-user-circle'></i>
-                            <div data-i18n="Employers Settings">List Account</div>
+                            <div data-i18n="Employers Settings">@Localizer["list_account"]</div>
                         </a>
                         <ul class="menu-sub ">                            
                             <li class="menu-item">
                                 <a href="/admin/list-employer" class="menu-link">
-                                    <div data-i18n="Employers">All Employers</div>
+                                    <div data-i18n="Employers">@Localizer["all_employers"]</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="/admin/list-user" class="menu-link">
-                                    <div data-i18n="Users">All Users</div>
+                                    <div data-i18n="Users">@Localizer["all_users"]</div>
                                 </a>
                             </li>
                         </ul>
@@ -145,33 +145,33 @@
 
                     <!--  Employer -->
                     <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text"> Employers Management</span>
+                        <span class="menu-header-text">@Localizer["employers_management"]</span>
                     </li>
                     <!-- Applicant Setting-->
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class='menu-icon tf-icons bx bx-user-circle'></i>
-                            <div data-i18n="Employers Settings">Employers Settings</div>
+                            <div data-i18n="Employers Settings">@Localizer["employers_settings"]</div>
                         </a>
                         <ul class="menu-sub ">
                             <li class="menu-item ">
                                 <a href="/admin/apply-employer/3" class="menu-link">
-                                    <div data-i18n="Employers">All employers</div>
+                                    <div data-i18n="Employers">@Localizer["all_employers"]</div>
                                 </a>
                             </li>
                             <li class="menu-item ">
                                 <a href="/admin/apply-employer/1" class="menu-link">
-                                    <div data-i18n="Employers">Waiting employers</div>
+                                    <div data-i18n="Employers">@Localizer["waiting_employers"]</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="/admin/apply-employer/2" class="menu-link">
-                                    <div data-i18n="Employers">Accepted employers</div>
+                                    <div data-i18n="Employers">@Localizer["accepted_employers"]</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a href="/admin/apply-employer/0" class="menu-link">
-                                    <div data-i18n="Employers">Denied employers</div>
+                                    <div data-i18n="Employers">@Localizer["denied_employers"]</div>
                                 </a>
                             </li>
                         </ul>
@@ -179,24 +179,24 @@
 
                     <!-- Roles -->
                     <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text"> Roles </span>
+                        <span class="menu-header-text">@Localizer["roles"]</span>
                     </li>
 
                     <!-- Roles Setting -->
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class='menu-icon tf-icons bx bx-wrench'></i>
-                            <div data-i18n="Account Settings">Roles Settings</div>
+                            <div data-i18n="Account Settings">@Localizer["roles_settings"]</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
                                 <a class="menu-link" href="/admin/auth/list-roles">
-                                    <div data-i18n="Account">Roles Management</div>
+                                    <div data-i18n="Account">@Localizer["roles_management"]</div>
                                 </a>
                             </li>
                             <li class="menu-item">
                                 <a class="menu-link" href="/admin/users">
-                                    <div data-i18n="Notifications">Set Role For User</div>
+                                    <div data-i18n="Notifications">@Localizer["set_role_for_user"]</div>
                                 </a>
                             </li>
 
@@ -204,66 +204,46 @@
                     </li>
 
                     <!-- Contents -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">management</span></li>
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">@Localizer["management"]</span></li>
                     <li class="menu-item">
                         <a href="/admin/category" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-table"></i>
-                            <div data-i18n="Tables">Categories</div>
+                            <div data-i18n="Tables">@Localizer["categories"]</div>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="/admin/province" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-table"></i>
-                            <div data-i18n="Tables">Provinces</div>
+                            <div data-i18n="Tables">@Localizer["provinces"]</div>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="/admin/skill" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-table"></i>
-                            <div data-i18n="Tables">Skills</div>
+                            <div data-i18n="Tables">@Localizer["skills"]</div>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="/admin/title" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-table"></i>
-                            <div data-i18n="Tables">Titles</div>
+                            <div data-i18n="Tables">@Localizer["titles"]</div>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="/admin/culture" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-table"></i>
-                            <div data-i18n="Tables">Cultures</div>
+                            <div data-i18n="Tables">@Localizer["cultures"]</div>
                         </a>
                     </li>
 
                     <li class="menu-item">
                         <a href="/admin/resource" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-table"></i>
-                            <div data-i18n="Tables">Resources</div>
-                        </a>
-                    </li>
-
-
-                    <!-- Misc -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
-                    <li class="menu-item">
-                        <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                           target="_blank"
-                           class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-support"></i>
-                            <div data-i18n="Support">Support</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                           target="_blank"
-                           class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-file"></i>
-                            <div data-i18n="Documentation">Documentation</div>
+                            <div data-i18n="Tables">@Localizer["resources"]</div>
                         </a>
                     </li>
                 </ul>

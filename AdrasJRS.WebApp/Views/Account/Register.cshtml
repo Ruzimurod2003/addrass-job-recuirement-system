@@ -5,18 +5,18 @@
 }
 
 <!-- /Logo -->
-<h4 class="mb-2">Adventure starts here 🚀</h4>
-<p class="mb-4">Make your app management easy and fun!</p>
+<h4 class="mb-2">@Localizer["adventure_starts_here"]</h4>
+<p class="mb-4">@Localizer["make_your_app_management_easy_and_fun"]</p>
 
 <form id="registerForm" class="mb-3" action="#" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="mb-3">
-        <label asp-for="Email" class="form-label"></label><span class="text-danger">*</span>
+        <label asp-for="Email" class="form-label">@Localizer["email"]</label><span class="text-danger">*</span>
         <input asp-for="Email" type="text" class="form-control" autocomplete="username" aria-required="true" placeholder="Enter your email" />
         <span asp-validation-for="Email" class="text-danger"></span>
     </div>
     <div class="mb-3 form-password-toggle">
-        <label asp-for="Password" class="form-label"></label><span class="text-danger">*</span>
+        <label asp-for="Password" class="form-label">@Localizer["password"]</label><span class="text-danger">*</span>
         <div class="input-group input-group-merge">
             <input asp-for="Password"
                    type="password"
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="mb-3 form-password-toggle">
-        <label asp-for="ConfirmPassword" class="form-label"></label><span class="text-danger">*</span>
+        <label asp-for="ConfirmPassword" class="form-label">@Localizer["confirm_password"]</label><span class="text-danger">*</span>
         <div class="input-group input-group-merge">
             <input asp-for="ConfirmPassword"
                    type="password"
@@ -40,22 +40,22 @@
         </div>
     </div>
     <div class="mb-3">
-        <label asp-for="FullName" class="form-label"></label><span class="text-danger">*</span>
+        <label asp-for="FullName" class="form-label">@Localizer["full_name"]</label><span class="text-danger">*</span>
         <input asp-for="FullName" type="text" class="form-control" autocomplete="" aria-required="true" placeholder="Enter your name" />
         <span asp-validation-for="FullName" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Age" class="form-label"></label><span class="text-danger">*</span>
+        <label asp-for="Age" class="form-label">@Localizer["age"]</label><span class="text-danger">*</span>
         <input asp-for="Age" type="text" class="form-control" autocomplete="" aria-required="true" placeholder="Enter your age" />
         <span asp-validation-for="Age" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Phone" class="form-label"></label><span class="text-danger">*</span>
+        <label asp-for="Phone" class="form-label">@Localizer["phone"]</label><span class="text-danger">*</span>
         <input asp-for="Phone" type="text" class="form-control" autocomplete="" aria-required="true" placeholder="Enter your phone" />
         <span asp-validation-for="Phone" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Address" class="form-label"></label><span class="text-danger">*</span>
+        <label asp-for="Address" class="form-label">@Localizer["address"]</label><span class="text-danger">*</span>
         <input asp-for="Address" type="text" class="form-control" autocomplete="" aria-required="true" placeholder="Enter your address" />
         <span asp-validation-for="Address" class="text-danger"></span>
     </div>
@@ -68,13 +68,13 @@
             </label>
         </div>
     </div>*@
-    <button id="registerSubmit" type="submit" class="btn btn-primary d-grid w-100">Sign up</button>
+    <button id="registerSubmit" type="submit" class="btn btn-primary d-grid w-100">@Localizer["sign_up"]</button>
 </form>
 
 <p class="text-center">
-    <span>Already have an account?</span>
+    <span>@Localizer["already_have_an_account"]</span>
     <a href="/login">
-        <span>Sign in instead</span>
+        <span>@Localizer["sign_in_instead"]</span>
     </a>
 </p>
 

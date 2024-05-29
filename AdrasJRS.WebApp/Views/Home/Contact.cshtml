@@ -9,9 +9,12 @@
 		<div class="row d-flex align-items-center justify-content-center">
 			<div class="about-content col-lg-12">
 				<h1 class="text-white">
-					Contact Us
+					@Localizer["contact_us"]
 				</h1>
-				<p class="text-white"><a href="/">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> Contact Us</a></p>
+				<p class="text-white"><a href="/">
+						@Localizer["home"] </a> <span class="lnr lnr-arrow-right"></span>
+					<a href="#"> @Localizer["contact_us"]</a>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -22,23 +25,41 @@
 	<div class="container">
 		<div class="row">
 			<!-- Start map-->
-			<div class="map-wrap" style="width:100%; height: 445px;" id="map"></div>
+			<div class="map-wrap" style="width:100%;">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.090988113213!2d69.2031524755869!3d41.3503759982908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8c3d5af08d2f%3A0x4f6c8b4d4847f94d!2z0J3QsNGG0LjQvtC90LDQu9GM0L3Ri9C5INGD0L3QuNCy0LXRgNGB0LjRgtC10YIg0KPQt9Cx0LXQutC40YHRgtCw0L3QsA!5e0!3m2!1sru!2s!4v1716728445837!5m2!1sru!2s"
+					width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
 			<!-- End map -->
 			<div class="col-lg-4 d-flex flex-column">
-				<a class="contact-btns" href="#">Submit Your CV</a>
-				<a class="contact-btns" href="#">Post New Job</a>
-				<a class="contact-btns" href="#">Create New Account</a>
+				<a class="contact-btns" href="#">@Localizer["submit_your_cv"]</a>
+				<a class="contact-btns" href="#">@Localizer["post_new_job"]</a>
+				<a class="contact-btns" href="#">@Localizer["create_new_account"]</a>
 			</div>
 			<div class="col-lg-8">
-				<form class="form-area " id="myForm" action="../assets/user/mail.php" method="post" class="contact-form text-right">
+				<form class="form-area " id="myForm" action="../assets/user/mail.php" method="post"
+					class="contact-form text-right">
 					<div class="row">
 						<div class="col-lg-12 form-group">
 							<!-- missing code -->
-							<input name="name" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
-							<input name="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
-							<input name="subject" placeholder="Enter your subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your subject'" class="common-input mb-20 form-control" required="" type="text">
-							<textarea class="common-textarea mt-10 form-control" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
-							<button class="primary-btn mt-20 text-white" style="float: right;">Send Message</button>
+							<input name="name" placeholder="@Localizer["enter_your_name"]"
+								onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '@Localizer["enter_your_name"]'"
+								class="common-input mb-20 form-control" required="" type="text">
+							<input name="email" placeholder="@Localizer["enter_your_email"]"
+								onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '@Localizer["enter_your_email"]'"
+								class="common-input mb-20 form-control" required="" type="email">
+							<input name="subject" placeholder="@Localizer["enter_your_subject"]"
+								onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '@Localizer["enter_your_subject"]'"
+								class="common-input mb-20 form-control" required="" type="text">
+							<textarea class="common-textarea mt-10 form-control" name="message"
+								placeholder="@Localizer["message"]" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '@Localizer["message"]'" required=""></textarea>
+							<button class="primary-btn mt-20 text-white"
+								style="float: right;">@Localizer["send_message"]</button>
 							<div class="mt-20 alert-msg" style="text-align: left;"></div>
 						</div>
 					</div>

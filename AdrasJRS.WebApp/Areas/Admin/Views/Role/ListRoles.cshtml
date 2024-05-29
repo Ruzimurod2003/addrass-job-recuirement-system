@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<AdrasJRS.Data.Entities.AppRole>
 
 @{
-    ViewData["Title"] = "All roles";
+    ViewData["Title"] = Localizer["all_roles"];
 }
 
 <div class="content-wrapper">
@@ -10,19 +10,19 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-description">
-                        <a class="btn btn-primary" asp-action="CreateRole">Create new role</a>
+                        <a class="btn btn-primary" asp-action="CreateRole">@Localizer["create_new_role"]</a>
                     </p>
                     <div class="table-responsive">
                         <table class="table table-bordered" style="text-align: center">
                             <thead>
                                 <tr>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Name)
+                                        @Localizer["name"]
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.Description)
+                                        @Localizer["description"]
                                     </th>
-                                    <th>Actions</th>
+                                    <th>@Localizer["actions"]</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,8 +36,10 @@
                                             @Html.DisplayFor(modelItem => item.Description)
                                         </td>
                                         <td>
-                                            <a class="btn btn-primary" asp-action="EditRole" asp-route-Id="@item.Id">Edit</a>
-                                            <button class="btn btn-danger" type="button" onclick="onDelete('@item.Id')">Delete</button>
+                                            <a class="btn btn-primary" asp-action="EditRole"
+                                                asp-route-Id="@item.Id">@Localizer["edit"]</a>
+                                            <button class="btn btn-danger" type="button"
+                                                onclick="onDelete('@item.Id')">@Localizer["delete"]</button>
                                         </td>
                                     </tr>
                                 }
@@ -65,17 +67,17 @@
 <script>
     function onDelete(id) {
         Swal.fire({
-            title: 'Delete this role?',
-            text: "Are you sure to delete this role?",
+            title: '@Localizer["delete_this_role"]',
+            text: "@Localizer["are_you_sure_to_delete_this_role"]",
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Delete'
+            confirmButtonText: '@Localizer["delete"]'
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = '/admin/auth/delete-role/' + id;
                 Swal.fire(
-                    'Deleted!',
+                    '@Localizer["deleted"]',
                     '',
                     'success'
                 );
