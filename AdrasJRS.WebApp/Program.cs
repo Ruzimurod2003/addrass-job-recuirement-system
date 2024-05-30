@@ -23,7 +23,7 @@ builder.Services.AddSingleton<IStringLocalizerFactory>(new EFStringLocalizerFact
 var connectionString = builder.Configuration.GetConnectionString("AdrasJRSContextConnection");
 
 builder.Services.AddDbContext<DataDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlite(connectionString));
 
 builder.Services.Configure<CookiePolicyOptions>(options =>
 {

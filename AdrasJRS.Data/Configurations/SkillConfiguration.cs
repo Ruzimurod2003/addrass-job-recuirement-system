@@ -9,7 +9,7 @@ public class SkillConfiguration : IEntityTypeConfiguration<Skill>
     {
         builder.ToTable("Skills");
         builder.HasKey(x => x.Id);
-        builder.Property(x => x.Id).UseIdentityColumn();
+        builder.Property(x => x.Id).ValueGeneratedOnAdd();
         builder.Property(x => x.Name).HasMaxLength(50).IsRequired();
         builder.Property(x => x.Logo).IsRequired();
         builder.Property(x => x.Slug).IsRequired();

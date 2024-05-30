@@ -4,8 +4,8 @@ namespace AdrasJRS.Data.Entities;
 public class Time
 {
     public int Id { get; set; }
-    [Required(ErrorMessage = "Please enter type name")]
-    [StringLength(20, ErrorMessage = "The type name cannot be more than 20 characters.")]
+    [Required(ErrorMessage = "Bitte geben Sie den Typnamen ein")]
+    [StringLength(20, ErrorMessage = "Der Typname darf nicht länger als 20 Zeichen sein.")]
     public string Name { get; set; }
     [Required]
     public string Slug { get; set; }

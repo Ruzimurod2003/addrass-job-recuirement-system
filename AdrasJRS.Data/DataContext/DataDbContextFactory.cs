@@ -15,7 +15,7 @@ public class DataDbContextFactory : IDesignTimeDbContextFactory<DataDbContext>
         var connectionString = configuration.GetConnectionString("AdrasJRSContextConnection");
 
         var optionsBuilder = new DbContextOptionsBuilder<DataDbContext>();
-        optionsBuilder.UseSqlServer(connectionString);
+        optionsBuilder.UseSqlite(connectionString);
 
         return new DataDbContext(optionsBuilder.Options);
     }

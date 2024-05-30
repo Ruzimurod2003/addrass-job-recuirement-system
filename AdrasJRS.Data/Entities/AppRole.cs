@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace AdrasJRS.Data.Entities;
 public class AppRole : IdentityRole<Guid>
 {
-    [Display(Name = "Description")]
-    [StringLength(256, ErrorMessage = "The description cannot be more than 256 characters.")]
+    [Display(Name = "Beschreibung")]
+    [StringLength(256, ErrorMessage = "Die Beschreibung darf nicht länger als 256 Zeichen sein.")]
     public string Description { get; set; }
 }

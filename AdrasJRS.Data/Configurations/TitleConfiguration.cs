@@ -9,7 +9,7 @@ public class TitleConfiguration : IEntityTypeConfiguration<Title>
     {
         builder.ToTable("Titles");
         builder.HasKey(x => x.Id);
-        builder.Property(x => x.Id).UseIdentityColumn();
+        builder.Property(x => x.Id).ValueGeneratedOnAdd();
         builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
         builder.Property(x => x.Slug).IsRequired();
         builder.Property(x => x.Disable).HasDefaultValue(false);

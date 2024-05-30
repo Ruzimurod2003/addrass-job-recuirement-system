@@ -27,7 +27,7 @@ public class EFStringLocalizerFactory : IStringLocalizerFactory
         var connectionString = configuration.GetConnectionString("AdrasJRSContextConnection");
 
         var optionsBuilder = new DbContextOptionsBuilder<DataDbContext>();
-        optionsBuilder.UseSqlServer(connectionString);
+        optionsBuilder.UseSqlite(connectionString);
 
         var _db = new DataDbContext(optionsBuilder.Options);
 

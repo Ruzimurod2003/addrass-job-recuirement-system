@@ -9,7 +9,7 @@ public class ProvinceConfiguration : IEntityTypeConfiguration<Province>
     {
         builder.ToTable("Provinces");
         builder.HasKey(x => x.Id);
-        builder.Property(x => x.Id).UseIdentityColumn();
+        builder.Property(x => x.Id).ValueGeneratedOnAdd();
         builder.Property(x => x.Name).HasMaxLength(50).IsRequired();
         builder.Property(x => x.Slug).IsRequired();
         builder.Property(x => x.Disable).HasDefaultValue(false);

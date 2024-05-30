@@ -9,7 +9,7 @@ public class CVConfiguration : IEntityTypeConfiguration<CV>
     {
         builder.ToTable("CVs");
         builder.HasKey(x => x.Id);
-        builder.Property(x => x.Id).UseIdentityColumn();
+        builder.Property(x => x.Id).ValueGeneratedOnAdd();
         //CV
         builder.Property(x => x.Certificate).HasMaxLength(100).IsRequired();
         builder.Property(x => x.Major).HasMaxLength(100).IsRequired();

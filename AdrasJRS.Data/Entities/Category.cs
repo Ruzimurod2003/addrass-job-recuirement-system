@@ -5,11 +5,11 @@ public class Category
 {
     public int Id { get; set; }
     [Display(Name = "Name")]
-    [Required(ErrorMessage = "Please enter category name")]
-    [StringLength(100, ErrorMessage = "Category name cannot be more than 100 characters.")]
+    [Required(ErrorMessage = "Bitte geben Sie den Kategorienamen ein")]
+    [StringLength(100, ErrorMessage = "Der Kategoriename darf nicht länger als 100 Zeichen sein.")]
     public string Name { get; set; }
-    [Display(Name = "Description")]
-    [StringLength(256, ErrorMessage = "The description cannot be more than 256 characters.")]
+    [Display(Name = "Beschreibung")]
+    [StringLength(256, ErrorMessage = "Die Beschreibung darf nicht länger als 256 Zeichen sein.")]
     public string Description { get; set; }
     [Required]
     public string Slug { get; set; }

@@ -5,43 +5,43 @@ public class Job
 {
     public int Id { get; set; }
     [Display(Name = "Name")]
-    [Required(ErrorMessage = "Please enter product name.")]
-    [StringLength(100, ErrorMessage = "Job name cannot be more than 100 characters.")]
+    [Required(ErrorMessage = "Bitte geben Sie den Produktnamen ein.")]
+    [StringLength(100, ErrorMessage = "Der Auftragsname darf nicht länger als 100 Zeichen sein.")]
     public string Name { get; set; }
     [Required]
     public string Slug { get; set; }
     public Category Category { get; set; }
-    [Display(Name = "Category")]
+    [Display(Name = "Kategorie")]
     public int? CategoryId { get; set; }
     public Title Title { get; set; }
-    [Display(Name = "Title")]
+    [Display(Name = "Titel")]
     public int TitleId { get; set; }
-    [Display(Name = "Description")]
+    [Display(Name = "Beschreibung")]
     public string Description { get; set; }
-    [Display(Name = "Introduce")]
+    [Display(Name = "Einführen")]
     public string Introduce { get; set; }
-    [Display(Name = "Object target")]
+    [Display(Name = "Objektziel")]
     public string ObjectTarget { get; set; }
-    [Display(Name = "Work experience")]
+    [Display(Name = "Arbeitserfahrung")]
     public string Experience { get; set; }
-    [Display(Name = "Create date")]
+    [Display(Name = "Erstellungsdatum")]
     public DateTime? CreateDate { get; set; }
     public int Popular { get; set; }
     public Province Province { get; set; }
-    [Display(Name = "Province")]
+    [Display(Name = "Provinz")]
     public int ProvinceId { get; set; }
     public Time Time { get; set; }
-    [Display(Name = "Working type")]
+    [Display(Name = "Arbeitstyp")]
     public int TimeId { get; set; }
-    [Display(Name = "Min salary")]
-    [Range(0, int.MaxValue, ErrorMessage = "Please enter valid salary.")]
+    [Display(Name = "Mindestgehalt")]
+    [Range(0, int.MaxValue, ErrorMessage = "Bitte geben Sie ein gültiges Gehalt ein.")]
     public int? MinSalary { get; set; }
     [Display(Name = "Max salary")]
-    [Range(1, int.MaxValue, ErrorMessage = "Please enter valid salary.")]
+    [Range(1, int.MaxValue, ErrorMessage = "Bitte geben Sie ein gültiges Gehalt ein.")]
     //[SalaryRange("MinSalary")] //Salary Range Validation Attribute
     public int? MaxSalary { get; set; }
     public AppUser AppUser { get; set; }
-    [Display(Name = "Employer")]
+    [Display(Name = "Arbeitgeberin")]
     public Guid AppUserId { get; set; }
     public virtual ICollection<Skill> Skills { get; set; }
     public ICollection<CV> CVs { get; set; }

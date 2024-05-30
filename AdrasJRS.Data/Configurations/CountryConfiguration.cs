@@ -9,7 +9,7 @@ public class CountryConfiguration : IEntityTypeConfiguration<Country>
     {
         builder.ToTable("Countries");
         builder.HasKey(x => x.Id);
-        builder.Property(x => x.Id).UseIdentityColumn();
+        builder.Property(x => x.Id).ValueGeneratedOnAdd();
         builder.Property(x => x.Name).HasMaxLength(50).IsRequired();
         builder.Property(x => x.Flag).IsRequired();
         builder.Property(x => x.Disable).HasDefaultValue(false);

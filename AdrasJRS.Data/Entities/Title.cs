@@ -4,11 +4,11 @@ namespace AdrasJRS.Data.Entities;
 public class Title
 {
     public int Id { get; set; }
-    [Required(ErrorMessage = "Please enter title name")]
-    [StringLength(100, ErrorMessage = "The title name cannot be more than 100 characters.")]
+    [Required(ErrorMessage = "Bitte geben Sie den Titelnamen ein")]
+    [StringLength(100, ErrorMessage = "Der Titelname darf nicht länger als 100 Zeichen sein.")]
     public string Name { get; set; }
     public Category Category { get; set; }
-    [Display(Name = "Category")]
+    [Display(Name = "Kategorie")]
     public int CategoryId { get; set; }
     public bool? Disable { get; set; }
     [Required]

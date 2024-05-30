@@ -5,24 +5,24 @@ public class Blog
 {
     public int Id { get; set; }
     public string Slug { get; set; }
-    [Display(Name = "Author")]
-    [StringLength(50, ErrorMessage = "The author cannot be more than 100 characters.")]
-    [Required(ErrorMessage = "Please enter author name.")]
+    [Display(Name = "Autorin")]
+    [StringLength(50, ErrorMessage = "Der Autor darf nicht mehr als 100 Zeichen umfassen.")]
+    [Required(ErrorMessage = "Bitte geben Sie den Namen des Autors ein.")]
     public string Author { get; set; }
-    [Display(Name = "Title")]
-    [StringLength(100, ErrorMessage = "The title cannot be more than 100 characters.")]
-    [Required(ErrorMessage = "Please enter title of blog.")]
+    [Display(Name = "Titel")]
+    [StringLength(100, ErrorMessage = "Der Titel darf nicht länger als 100 Zeichen sein.")]
+    [Required(ErrorMessage = "Bitte geben Sie den Titel des Blogs ein.")]
     public string Title { get; set; }
-    [Display(Name = "Content")]
-    [Required(ErrorMessage = "Please enter content of blog.")]
+    [Display(Name = "Inhalt")]
+    [Required(ErrorMessage = "Bitte geben Sie den Inhalt des Blogs ein.")]
     public string Content { get; set; }
-    [Display(Name = "Image")]
-    [Required(ErrorMessage = "Please enter image of blog")]
+    [Display(Name = "Bild")]
+    [Required(ErrorMessage = "Bitte geben Sie ein Bild des Blogs ein")]
     public string Image { get; set; }
     public Guid? AppUserId { set; get; }
     public AppUser AppUser { get; set; }
     public DateTime CreateDate { set; get; }
-    [Display(Name = "Blog overview")]
+    [Display(Name = "Blogübersicht")]
     public string Description { get; set; }
     public int Popular { get; set; }
 }
