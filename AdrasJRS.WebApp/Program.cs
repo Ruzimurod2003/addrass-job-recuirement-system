@@ -65,11 +65,21 @@ builder.Services.AddSession();
 
 var app = builder.Build();
 
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+    app.UseDeveloperExceptionPage();
 
     app.UseHsts();
+}
+else if (app.Environment.IsProduction())
+{
+    app.UseExceptionHandler("/Error");
+
+    app.UseHsts();
+}
+else
+{
+    throw new Exception("Environment has not been set or is incorrect");
 }
 
 app.UseHttpsRedirection();
