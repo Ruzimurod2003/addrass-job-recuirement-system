@@ -44,7 +44,7 @@
                     @if (ViewBag.Time == null && ViewBag.Province == null && ViewBag.Skill == null && ViewBag.Employer
                     == null)
                     {
-                        <text>@ViewBag.jobCount IT Jobs For Developers</text>
+                        <text>@ViewBag.jobCount @Localizer["jobs_for"] @Localizer["worker"]</text>
                     }
                     else
                     {
