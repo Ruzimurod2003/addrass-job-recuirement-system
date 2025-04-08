@@ -6,10 +6,9 @@ services:
       context: .
       dockerfile: AdrasJRS.WebApp/Dockerfile
     ports:
-      - "8084:80"
+      - "5624:80"
     environment:
         - ASPNETCORE_ENVIRONMENT=Development
-        - ASPNETCORE_URLS=http://+:80
     networks:
       - src_all_network
     volumes:
