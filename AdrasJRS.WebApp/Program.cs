@@ -9,7 +9,11 @@ using Microsoft.Extensions.Localization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews().AddDataAnnotationsLocalization(options =>
+builder.Services.AddControllersWithViews(options =>
+{
+    options.Conventions.Insert(0, new RoutePrefixConvention("addrass_job_system"));
+})
+.AddDataAnnotationsLocalization(options =>
 {
     options.DataAnnotationLocalizerProvider = (type, factory) =>
     factory.Create(null);

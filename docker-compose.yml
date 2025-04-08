@@ -1,0 +1,38 @@
+version: '3.4'
+services:
+
+  addrass_job_system_backend:
+    build:
+      context: .
+      dockerfile: AdrasJRS.WebApp/Dockerfile
+    ports:
+      - "8084:80"
+    environment:
+        - ASPNETCORE_ENVIRONMENT=Development
+        - ASPNETCORE_URLS=http://+:80
+    networks:
+      - src_all_network
+    volumes:
+      - /home/ubuntu/app/addrass_job_system/wwwroot:/app/wwwroot
+      - /home/ubuntu/app/addrass_job_system/logs:/app/Logs
+      - /home/ubuntu/app/addrass_job_system/appsettings.json:/app/appsettings.json
+      - /home/ubuntu/app/addrass_job_system/AdrassApp.db:/app/AdrassApp.db
+    restart: always
+    labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.addrass_job_system_backend.rule=(Host(`mycareer-dev.esynergy.lv/`) && (PathPrefix(`/addrass_job_system`)))"
+        - "traefik.http.middlewares.addrass_job_system_cors.headers.accesscontrolallowmethods=GET,OPTIONS,PUT,POST,DELETE"
+        - "traefik.http.middlewares.addrass_job_system_cors.headers.accesscontrolallowheaders=*"
+        - "traefik.http.middlewares.addrass_job_system_cors.headers.accesscontrolalloworiginlist=*"
+        - "traefik.http.middlewares.addrass_job_system_cors.headers.accesscontrolmaxage=100"
+        - "traefik.http.middlewares.addrass_job_system_cors.headers.addvaryheader=true"
+        - "traefik.http.routers.addrass_job_system_backend.middlewares=addrass_job_system_cors"
+        - "traefik.http.routers.addrass_job_system_backend.entrypoints=websecure"
+        - "traefik.http.routers.addrass_job_system_backend.tls=true"
+        # - "traefik.http.services.backend.loadbalancer.server.port=80"
+        # - "traefik.http.routers.backend.service=backend"
+
+
+networks:
+  src_all_network:
+    external: true

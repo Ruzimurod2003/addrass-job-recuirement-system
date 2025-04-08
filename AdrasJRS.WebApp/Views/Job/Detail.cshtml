@@ -18,7 +18,7 @@
 				<h1 class="text-white">
 					@Model.Name
 				</h1>
-				<p class="text-white link-nav"><a href="/">@Localizer["home"] </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> @Localizer["job_details"]</a></p>
+				<p class="text-white link-nav"><a href="/addrass_job_system/">@Localizer["home"] </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#"> @Localizer["job_details"]</a></p>
 			</div>
 		</div>
 	</div>
@@ -31,11 +31,11 @@
 			<div class="col-lg-8 post-list">
 				<div class="single-post d-flex flex-row">
 					<div class="thumb" style="align-items:center">
-						<a href="/job?slug=@Model.AppUser.Slug"><img style="border-radius:10px" width="200" height="100" src="/images/employers/@Model.AppUser.UrlAvatar" alt="EMPLOYER IMAGE"></a>
+						<a href="/addrass_job_system/job?slug=@Model.AppUser.Slug"><img style="border-radius:10px" width="200" height="100" src="/images/employers/@Model.AppUser.UrlAvatar" alt="EMPLOYER IMAGE"></a>
 						<ul class="tags" style="justify-content:center; display: grid; border-radius:10px">
 							<!-- Province -->
 							<li style="border-radius:10px">
-								<strong><a href="/job?slug=@Model.Province.Slug" style="color: black"><span class="lnr lnr-map-marker"></span> @Model.Province.Name</a></strong>
+								<strong><a href="/addrass_job_system/job?slug=@Model.Province.Slug" style="color: black"><span class="lnr lnr-map-marker"></span> @Model.Province.Name</a></strong>
 							</li>
 						</ul>
 						<hr />
@@ -44,7 +44,7 @@
 							@foreach (var skill in Model.Skills)
 							{
 								<li style="border-radius:10px">
-									<strong><a href="/job?slug=@skill.Slug" style="color: black">@skill.Name</a></strong>
+									<strong><a href="/addrass_job_system/job?slug=@skill.Slug" style="color: black">@skill.Name</a></strong>
 								</li>
 							}
 						</ul>
@@ -52,9 +52,9 @@
 					<div class="details" style="margin-left:20px; width:600px;">
 						<div class="title d-flex flex-row justify-content-between">
 							<div class="titles">
-								<a href="/job/@Model.Slug"><h4>@Model.Name</h4></a>
+								<a href="/addrass_job_system/job/@Model.Slug"><h4>@Model.Name</h4></a>
 								<h5 style="color: gray; margin-bottom: 5px;"><span class="lnr lnr-hourglass"></span> @GetTimeAgo(Model.CreateDate)</h5>
-								<h5 style="margin-top: 10px; margin-bottom: 10px"><strong>@Localizer["from"]: <a href="/company/@Model.AppUser.Slug">@Model.AppUser.FullName</a></strong></h5>
+								<h5 style="margin-top: 10px; margin-bottom: 10px"><strong>@Localizer["from"]: <a href="/addrass_job_system/company/@Model.AppUser.Slug">@Model.AppUser.FullName</a></strong></h5>
 							</div>
 						</div>
 						<hr>
@@ -96,12 +96,12 @@
 					}
 					else
 					{
-						<a class="text-uppercase loadmore-btn mx-auto d-block" href="/apply/@Model.Slug/@user.Id">@Localizer["apply_now"]</a>
+						<a class="text-uppercase loadmore-btn mx-auto d-block" href="/addrass_job_system/apply/@Model.Slug/@user.Id">@Localizer["apply_now"]</a>
 					}
 				}
 				else
 				{
-					<a target="_blank" class="text-uppercase loadmore-btn mx-auto d-block" href="/login">@Localizer["login_to_apply_now"]</a>
+					<a target="_blank" class="text-uppercase loadmore-btn mx-auto d-block" href="/addrass_job_system/login">@Localizer["login_to_apply_now"]</a>
 				}
 			</div>
 

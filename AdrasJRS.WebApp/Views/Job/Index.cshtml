@@ -56,9 +56,9 @@
                         </text>
                     }
                 </h1>
-                <p class="text-white link-nav"><a href="/">@Localizer["home"] </a> <span
+                <p class="text-white link-nav"><a href="/addrass_job_system/">@Localizer["home"] </a> <span
                         class="lnr lnr-arrow-right"></span>
-                    <a href="/job"> @Localizer["all_jobs"]</a>
+                    <a href="/addrass_job_system/job"> @Localizer["all_jobs"]</a>
                 </p>
             </div>
         </div>
@@ -82,14 +82,14 @@
                         <div class="single-post d-flex flex-row">
                             <!-- Job skill -->
                             <div class="thumb" style="align-items:center">
-                                <a href="/company/@job.AppUser.Slug"><img href="/job/@job.Slug" style="border-radius:10px"
+                                <a href="/addrass_job_system/company/@job.AppUser.Slug"><img href="/addrass_job_system/job/@job.Slug" style="border-radius:10px"
                                         width="200" height="100"
                                         src="/images/employers/@job.AppUser.UrlAvatar"
                                         alt="employer image"></a>
                                 <ul class="tags" style="justify-content:center; display: grid; border-radius:10px">
                                     <!-- Province -->
                                     <li style="border-radius:10px">
-                                        <strong><a href="/job?slug=@job.Province.Slug" style="color: black"><span
+                                        <strong><a href="/addrass_job_system/job?slug=@job.Province.Slug" style="color: black"><span
                                                     class="lnr lnr-map-marker"></span> @job.Province.Name</a></strong>
                                     </li>
                                 </ul>
@@ -99,7 +99,7 @@
                                     @foreach (var skill in job.Skills)
                                     {
                                         <li style="border-radius:10px">
-                                            <strong><a href="/job?slug=@skill.Slug" style="color: black">@skill.Name</a></strong>
+                                            <strong><a href="/addrass_job_system/job?slug=@skill.Slug" style="color: black">@skill.Name</a></strong>
                                         </li>
                                     }
                                 </ul>
@@ -108,13 +108,13 @@
                             <div class="details" style="margin-left:20px; width:600px;">
                                 <div class="title d-flex flex-row justify-content-between">
                                     <div class="titles">
-                                        <a href="/job/@job.Slug">
+                                        <a href="/addrass_job_system/job/@job.Slug">
                                             <h4>@job.Name</h4>
                                         </a>
                                         <h5 style="color: gray"><span class="lnr lnr-hourglass"></span>
                                             @GetTimeAgo(job.CreateDate)</h5>
                                         <h5><strong>@Localizer["from"]: <a
-                                                    href="/company/@job.AppUser.Slug">@job.AppUser.FullName</a></strong></h5>
+                                                    href="/addrass_job_system/company/@job.AppUser.Slug">@job.AppUser.FullName</a></strong></h5>
                                     </div>
                                 </div>
                                 <hr>
@@ -129,7 +129,7 @@
                                     </div>
                                     <div style="text-align:right; margin-top: 40px">
                                         <ul class="btns">
-                                            <li style="border-radius:10px"><a href="/job/@job.Slug">@Localizer["apply_now"]</a></li>
+                                            <li style="border-radius:10px"><a href="/addrass_job_system/job/@job.Slug">@Localizer["apply_now"]</a></li>
                                         </ul>
                                     </div>
                                 </div>

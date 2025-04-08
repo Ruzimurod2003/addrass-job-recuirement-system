@@ -18,7 +18,7 @@
 				<h1 class="text-white">
 					@Model.FullName
 				</h1>
-				<p class="text-white link-nav"><a href="/">
+				<p class="text-white link-nav"><a href="/addrass_job_system/">
                 @Localizer["home"] </a>  <span class="lnr lnr-arrow-right"></span>  
                 <a href="#"> @Localizer["company_overview"]</a></p>
 			</div>
@@ -38,12 +38,12 @@
                     <ul class="cat-list">
                         @if (ViewBag.CountJob == 1)
                         {
-                            <li class="col-xs-12 col-4"><a href="/job?slug=@Model.Slug">@ViewBag.CountJob @Localizer["jobs_opening"]</a></li>
+                            <li class="col-xs-12 col-4"><a href="/addrass_job_system/job?slug=@Model.Slug">@ViewBag.CountJob @Localizer["jobs_opening"]</a></li>
 
                         }
                         else if (ViewBag.CountJob > 1)
                         {
-                            <li class="col-xs-12 col-4"><a href="/job?slug=@Model.Slug">@ViewBag.CountJob @Localizer["jobs_opening"]</a></li>
+                            <li class="col-xs-12 col-4"><a href="/addrass_job_system/job?slug=@Model.Slug">@ViewBag.CountJob @Localizer["jobs_opening"]</a></li>
                         }
                     </ul>
                     <ul class="tags">

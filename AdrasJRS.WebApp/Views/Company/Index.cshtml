@@ -44,9 +44,9 @@
                 <h1 class="text-white">
                     <span>@Localizer["best_companies"]</span>
                 </h1>
-                <p class="text-white link-nav"><a href="/">
+                <p class="text-white link-nav"><a href="/addrass_job_system/">
                         @Localizer["home"] </a> <span class="lnr lnr-arrow-right"></span>
-                    <a href="/company"> @Localizer["all_companies"]</a>
+                    <a href="/addrass_job_system/company"> @Localizer["all_companies"]</a>
                 </p>
             </div>
         </div>
@@ -67,7 +67,7 @@
                         <div class="single-post d-flex flex-row">
                             <!-- Employer province -->
                             <div class="thumb" style="align-items:center">
-                                <a href="/job?slug=@employer.Slug">
+                                <a href="/addrass_job_system/job?slug=@employer.Slug">
                                     <img style="border-radius:10px" width="200" height="100"
                                         src="/images/employers/@employer.UrlAvatar"
                                         alt="employer image"></a>
@@ -75,7 +75,7 @@
                                     <!--Skill-->
                                     <li style="border-radius:10px">
                                         <strong><span class="lnr lnr-map-marker"></span><a
-                                                href="/job?slug=@employer.Province.Slug"> @employer.Province.Name</a></strong>
+                                                href="/addrass_job_system/job?slug=@employer.Province.Slug"> @employer.Province.Name</a></strong>
                                     </li>
                                 </ul>
                                 <hr />
@@ -85,7 +85,7 @@
                             <div class="details" style="margin-left:20px; width:600px;">
                                 <div class="title d-flex flex-row justify-content-between">
                                     <div class="titles">
-                                        <a href="/company/@employer.Slug">
+                                        <a href="/addrass_job_system/company/@employer.Slug">
                                             <h4>@employer.FullName</h4>
                                         </a>
                                         <p><img width="30" height="20"
@@ -108,7 +108,7 @@
                                     </div>
                                     <div style="text-align:right; margin-top: 80px">
                                         <ul class="btns">
-                                            <li style="border-radius:10px"><a href="/company/@employer.Slug">@Localizer["view_company"]</a>
+                                            <li style="border-radius:10px"><a href="/addrass_job_system/company/@employer.Slug">@Localizer["view_company"]</a>
                                             </li>
                                         </ul>
                                     </div>

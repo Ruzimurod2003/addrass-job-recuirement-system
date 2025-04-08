@@ -17,7 +17,7 @@
             <div class="card">
                 <div class="card-body">
                     <p class="card-description">
-                        <a class="btn btn-primary" href="/employer/job/@user.Id/create">@Localizer["add_new_job"]</a>
+                        <a class="btn btn-primary" href="/addrass_job_system/employer/job/@user.Id/create">@Localizer["add_new_job"]</a>
                     </p>
                     @*<form asp-action="Index" method="get" class="form-inline">
                     <div class="form-group mx-sm-3 mb-2">
@@ -72,7 +72,7 @@
                                             <td>@Html.Raw(string.Join(", ", job.Skills.Select(skill => skill.Name)))</td>
                                             <td>@Html.DisplayFor(modelJob => job.Title.Name)</td>
                                             <td>
-                                                <a style="color: blue" href="/employer/job/@job.Id/update">@Localizer["update"]</a> |
+                                                <a style="color: blue" href="/addrass_job_system/employer/job/@job.Id/update">@Localizer["update"]</a> |
                                                 <a style="color: red" href="#" onclick="onDelete(@job.Id)">@Localizer["delete"]</a>
                                             </td>
                                         </tr>

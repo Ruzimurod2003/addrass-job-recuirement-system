@@ -14,7 +14,7 @@ public class HomeController : Controller
     {
         this._context = dataDbContext;
     }
-
+    [HttpGet]
     public IActionResult Index()
     {
         var random = new Random();
@@ -77,7 +77,7 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
-    [HttpGet]
+    [HttpGet("set-lang")]
     public IActionResult SetLanguage(string culture, string returnUrl)
     {
         Response.Cookies.Append(
